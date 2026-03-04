@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    CONTENT TODOs FOR OWNER
+    - Hours
+    - Payment methods
+    - Official Instagram link
+    - Official pricing
+    - Logo file
+    - Photos
+
+    Assets needed:
+    - Official logo file (replace ./assets/logo.svg)
+    - Exterior storefront photo
+    - Interior shop photo
+    - Barbers at work photo
+    - Barber chair close-up photo
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Barbers | Williamsburg Barber Shop in Brooklyn, NY</title>
+  <meta name="description" content="Classic barber cuts in Williamsburg. Walk-ins welcome. Men’s haircuts, beard trims, and hot towel shaves. Call (718) 387-9487." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://example.com" /><!-- TODO: replace with official domain -->
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Model Barbers | Williamsburg Barber Shop in Brooklyn, NY" />
+  <meta property="og:description" content="Classic cuts in Williamsburg, Brooklyn. Walk-ins welcome. Call (718) 387-9487." />
+  <meta property="og:url" content="https://example.com" /><!-- TODO: replace with official domain -->
+  <meta property="og:image" content="./assets/og.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Model Barbers | Williamsburg Barber Shop in Brooklyn, NY" />
+  <meta name="twitter:description" content="Classic cuts in Williamsburg, Brooklyn. Walk-ins welcome. Call (718) 387-9487." />
+  <meta name="twitter:image" content="./assets/og.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BarberShop",
+      "name": "Model Barbers",
+      "url": "https://example.com",
+      "telephone": "+1-718-387-9487",
+      "priceRange": "$$",
+      "areaServed": "Williamsburg, Brooklyn",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "452 Union Ave",
+        "addressLocality": "Brooklyn",
+        "addressRegion": "NY",
+        "postalCode": "11211",
+        "addressCountry": "US"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="top">
+    <div class="top-stripe" aria-hidden="true"></div>
+    <div class="container nav-wrap">
+      <a href="#top" class="logo" aria-label="Model Barbers home">
+        <img src="./assets/logo.svg" alt="Model Barbers logo placeholder" width="38" height="38" loading="eager" decoding="async" />
+        <span>Model Barbers</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+        <ul id="main-nav" class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#barbers">Our Barbers</a></li>
+          <li><a href="#expect">What to Expect</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="tel:+17183879487">Call Now</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero reveal" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Williamsburg, Brooklyn</p>
+          <h1 id="hero-title">Classic cuts in Williamsburg.</h1>
+          <p class="hero-sub">Straightforward service, consistent results, and fair neighborhood value. Walk-ins welcome.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="tel:+17183879487">Call (718) 387-9487</a>
+            <a class="btn btn-outline" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn btn-ghost" href="#services">View Services</a>
+          </div>
+          <p class="trust-line">Known for getting you in, out, and back to your day.</p>
+        </div>
+        <figure class="hero-media">
+          <!-- Placeholder image: replace with real shop hero photo -->
+          <img
+            src="./assets/hero.jpg"
+            srcset="./assets/hero.jpg 1200w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            alt="Placeholder image of a classic barbershop interior"
+            width="1200"
+            height="900"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="info-bar reveal" aria-label="Business highlights">
+      <div class="container info-grid">
+        <article>
+          <h2>Address</h2>
+          <p><a href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">452 Union Ave, Brooklyn, NY 11211</a></p>
+        </article>
+        <article>
+          <h2>Phone</h2>
+          <p>
+            <a href="tel:+17183879487">(718) 387-9487</a>
+            <button class="link-btn" id="copy-phone" type="button" aria-label="Copy phone number">Copy</button>
+          </p>
+          <p id="copy-feedback" class="assistive" aria-live="polite"></p>
+        </article>
+        <article>
+          <h2>Hours</h2>
+          <p>TODO: confirm hours</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="services section reveal" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Services</h2>
+        <p class="section-intro">Classic barbershop essentials, delivered with clean, consistent execution.</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Men’s Haircut</h3>
+            <p>Haircut (starting around $30, per customer reports) — TODO confirm.</p>
+          </article>
+          <article class="card">
+            <h3>Beard Trim</h3>
+            <p>Beard detailing and shape-up. Call to confirm pricing.</p>
+          </article>
+          <article class="card">
+            <h3>Hot Towel Shave</h3>
+            <p>Traditional hot towel shave service. Call to confirm pricing.</p>
+          </article>
+          <article class="card">
+            <h3>Head Shave</h3>
+            <p>Clean head shave service. Call to confirm pricing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why reveal" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title">Why Model Barbers</h2>
+        <ul class="check-list">
+          <li>Consistent cuts you can count on.</li>
+          <li>Quick, straightforward service.</li>
+          <li>Neighborhood value in Williamsburg.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section barbers reveal" id="barbers" aria-labelledby="barbers-title">
+      <div class="container">
+        <h2 id="barbers-title">Three Barbers. One Classic Standard.</h2>
+        <p class="section-intro">The shop is known for a tight team of three barbers delivering consistent neighborhood cuts.</p>
+        <div class="barber-grid">
+          <article class="barber-card">
+            <h3>Roman</h3>
+            <p>Part of the three-barber team known for consistent, straightforward cuts.</p>
+            <p><a href="https://www.google.com/search?q=Model+Barbers+Roman+reviews" target="_blank" rel="noopener">See Google reviews mentioning Roman</a></p>
+          </article>
+          <article class="barber-card">
+            <h3>Jack</h3>
+            <p>Part of the three-barber team known for consistent, straightforward cuts.</p>
+            <p><a href="https://www.google.com/search?q=Model+Barbers+Jack+reviews" target="_blank" rel="noopener">See Google reviews mentioning Jack</a></p>
+          </article>
+          <article class="barber-card">
+            <h3>Alec</h3>
+            <p>Part of the three-barber team known for consistent, straightforward cuts.</p>
+            <p><a href="https://www.google.com/search?q=Model+Barbers+Alec+reviews" target="_blank" rel="noopener">See Google reviews mentioning Alec</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expect reveal" id="expect" aria-labelledby="expect-title">
+      <div class="container">
+        <h2 id="expect-title">What to Expect</h2>
+        <ol class="steps">
+          <li><strong>Walk in</strong> when it works for your schedule.</li>
+          <li><strong>Tell us what you want</strong> and keep it simple.</li>
+          <li><strong>Clean finish</strong> with classic barbershop attention to detail.</li>
+          <li><strong>Leave sharper</strong> and ready for the day.</li>
+        </ol>
+        <p class="note">Weekends can be busier — call ahead if you’re on a schedule.</p>
+      </div>
+    </section>
+
+    <section class="section reviews reveal" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title">Customer Feedback</h2>
+        <div class="quote-grid">
+          <blockquote>“Classic cuts, straightforward service, consistent, quick, fair pricing.”</blockquote>
+          <blockquote>“Walk-in friendly and in-and-out when you need a clean cut.”</blockquote>
+          <blockquote>“Known for that ‘Brand New Man’ feeling.” <cite>— Local customers say</cite></blockquote>
+        </div>
+        <p class="reviews-link-wrap">
+          <a class="btn btn-outline" href="https://www.google.com/search?q=Model+Barbers+452+Union+Ave+Brooklyn+NY+11211+reviews" target="_blank" rel="noopener">Read customer reviews on Google</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section location reveal" id="location" aria-labelledby="location-title">
+      <div class="container location-grid">
+        <div>
+          <h2 id="location-title">Visit Model Barbers</h2>
+          <p>452 Union Ave, Brooklyn, NY 11211</p>
+          <ul>
+            <li>Near major Williamsburg transit.</li>
+            <li>Easy stop for neighborhood regulars and local workers.</li>
+            <li><a href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Open in Google Maps</a></li>
+          </ul>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            title="Map showing Model Barbers in Williamsburg, Brooklyn"
+            src="https://www.google.com/maps?q=452%20Union%20Ave%2C%20Brooklyn%2C%20NY%2011211&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq reveal" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">FAQ</h2>
+        <details>
+          <summary>Do you take walk-ins?</summary>
+          <p>Yes, walk-ins are welcome.</p>
+        </details>
+        <details>
+          <summary>How much is a haircut?</summary>
+          <p>Haircut pricing is reported by customers as around $30. Call to confirm current pricing.</p>
+        </details>
+        <details>
+          <summary>What services do you offer?</summary>
+          <p>Men’s Haircut, Beard Trim, Hot Towel Shave, and Head Shave.</p>
+        </details>
+        <details>
+          <summary>Do you take cards?</summary>
+          <p>TODO: confirm payment methods (cash/card).</p>
+        </details>
+        <details>
+          <summary>What are your hours?</summary>
+          <p>TODO: confirm hours.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta section reveal" aria-labelledby="cta-title">
+      <div class="container cta-box">
+        <h2 id="cta-title">Stop in today.</h2>
+        <p>Walk in for a classic cut in Williamsburg, or call ahead if you’re on a tight schedule.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+17183879487">Call Now</a>
+          <a class="btn btn-outline" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2 class="footer-title">Model Barbers</h2>
+        <address>
+          452 Union Ave, Brooklyn, NY 11211<br />
+          <a href="tel:+17183879487">(718) 387-9487</a>
+        </address>
+        <p>Barber shop in Williamsburg, Brooklyn.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Quick Links</h2>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#barbers">Our Barbers</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container seo-block">
+      <p>
+        Model Barbers on Union Ave offers classic men’s haircut and beard trim services in Williamsburg, Brooklyn.
+        If you’re looking for quick, consistent barbershop service with neighborhood value, call or stop by.
+      </p>
+      <p class="copyright">© <span id="year"></span> Model Barbers. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="floating-call" href="tel:+17183879487" aria-label="Call Model Barbers">Call</a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
