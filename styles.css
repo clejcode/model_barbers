@@ -18,7 +18,14 @@
 html { scroll-behavior: smooth; }
 
 * {
-  cursor: url("scissors-cursor.svg") 5 3, auto;
+  cursor: url("scissors-cursor.svg") 24 4, auto;
+}
+
+
+html.snipping *,
+html.snipping summary,
+html.snipping .link-btn {
+  cursor: url("scissors-cursor-snip.svg") 24 4, auto;
 }
 
 body {
@@ -320,7 +327,7 @@ summary { cursor: pointer; font-weight: 700; }
 
   .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .barber-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .barber-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .quote-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -336,4 +343,19 @@ summary { cursor: pointer; font-weight: 700; }
     transition: none;
     transform: none;
   }
+}
+
+
+.review-score,
+.reviews-score {
+  margin: 0.5rem 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.barber-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
 }

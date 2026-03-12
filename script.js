@@ -58,3 +58,14 @@ if ('IntersectionObserver' in window && revealItems.length > 0) {
 } else {
   revealItems.forEach((item) => item.classList.add('visible'));
 }
+
+const snipRoot = document.documentElement;
+let snipTimeout;
+
+document.addEventListener('click', () => {
+  snipRoot.classList.add('snipping');
+  window.clearTimeout(snipTimeout);
+  snipTimeout = window.setTimeout(() => {
+    snipRoot.classList.remove('snipping');
+  }, 140);
+});
