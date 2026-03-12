@@ -17,6 +17,10 @@
 
 html { scroll-behavior: smooth; }
 
+* {
+  cursor: url("scissors-cursor.svg") 5 3, auto;
+}
+
 body {
   margin: 0;
   font-family: "Source Sans 3", system-ui, sans-serif;
