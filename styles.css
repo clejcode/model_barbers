@@ -23,9 +23,44 @@ body {
   line-height: 1.55;
 }
 
-* { cursor: url("scissors-cursor.svg") 24 4, auto; }
-html.snipping *, html.snipping summary, html.snipping .link-btn {
-  cursor: url("scissors-cursor-snip.svg") 24 4, auto;
+:root {
+  --cursor-closed: url("scissors-cursor.svg") 12 12;
+  --cursor-open: url("scissors-cursor-snip.svg") 12 12;
+}
+
+html,
+body,
+body * {
+  cursor: var(--cursor-closed), auto;
+}
+
+html.snipping,
+html.snipping body,
+html.snipping body * {
+  cursor: var(--cursor-open), auto;
+}
+
+input,
+textarea,
+select,
+[contenteditable="true"],
+[contenteditable=""],
+[contenteditable]:not([contenteditable="false"]) {
+  cursor: auto !important;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea,
+[contenteditable="true"],
+[contenteditable=""],
+[contenteditable]:not([contenteditable="false"]) {
+  cursor: text !important;
 }
 
 img { max-width: 100%; height: auto; display: block; }
