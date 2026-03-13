@@ -4,6 +4,10 @@ const navAnchors = document.querySelectorAll('.nav-links a');
 const copyPhoneButton = document.querySelector('#copy-phone');
 const copyFeedback = document.querySelector('#copy-feedback');
 const yearNode = document.querySelector('#year');
+const barberPole = document.querySelector('.barber-pole');
+const logo = document.querySelector('.logo');
+const actionButtons = document.querySelectorAll('.btn, .floating-call, .nav-toggle');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -68,4 +72,84 @@ document.addEventListener('click', () => {
   snipTimeout = window.setTimeout(() => {
     snipRoot.classList.remove('snipping');
   }, 140);
+});
+
+const audioContext = window.AudioContext || window.webkitAudioContext;
+let soundEngine;
+
+const ensureAudio = async () => {
+  if (!audioContext) return null;
+  if (!soundEngine) {
+    soundEngine = new audioContext();
+  }
+  if (soundEngine.state === 'suspended') {
+    try {
+      await soundEngine.resume();
+    } catch {
+      return null;
+    }
+  }
+  return soundEngine;
+};
+
+const playTone = async ({ frequency = 560, type = 'triangle', gain = 0.014, duration = 0.06 }) => {
+  const ctx = await ensureAudio();
+  if (!ctx) return;
+
+  const osc = ctx.createOscillator();
+  const amp = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(frequency, ctx.currentTime);
+  amp.gain.setValueAtTime(gain, ctx.currentTime);
+  amp.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+  osc.connect(amp);
+  amp.connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + duration);
+};
+
+if (barberPole) {
+  barberPole.addEventListener('click', () => {
+    barberPole.classList.add('speed-up');
+    window.setTimeout(() => barberPole.classList.remove('speed-up'), 1200);
+    playTone({ frequency: 320, type: 'sine', gain: 0.012, duration: 0.08 });
+  });
+}
+
+if (logo) {
+  logo.addEventListener('click', () => {
+    playTone({ frequency: 740, type: 'square', gain: 0.012, duration: 0.04 });
+    window.setTimeout(() => {
+      playTone({ frequency: 540, type: 'square', gain: 0.01, duration: 0.04 });
+    }, 45);
+  });
+}
+
+const spawnClippings = (event) => {
+  if (reduceMotion) return;
+  const total = 7;
+  const x = event.clientX || window.innerWidth * 0.5;
+  const y = event.clientY || window.innerHeight * 0.5;
+
+  for (let i = 0; i < total; i += 1) {
+    const chip = document.createElement('span');
+    chip.className = 'clip-burst';
+    chip.style.left = `${x}px`;
+    chip.style.top = `${y}px`;
+    chip.style.setProperty('--x', `${(Math.random() - 0.5) * 28}px`);
+    chip.style.setProperty('--y', `${Math.random() * -24 - 8}px`);
+    chip.style.setProperty('--rot', `${Math.random() * 180}deg`);
+    document.body.append(chip);
+    chip.addEventListener('animationend', () => chip.remove(), { once: true });
+  }
+};
+
+actionButtons.forEach((button) => {
+  button.addEventListener('pointerenter', () => {
+    playTone({ frequency: 640 + Math.random() * 80, type: 'triangle', gain: 0.006, duration: 0.03 });
+  });
+
+  button.addEventListener('click', (event) => {
+    spawnClippings(event);
+  });
 });
