@@ -60,12 +60,17 @@ if ('IntersectionObserver' in window && revealItems.length > 0) {
 }
 
 const snipRoot = document.documentElement;
-let snipTimeout;
 
-document.addEventListener('click', () => {
-  snipRoot.classList.add('snipping');
-  window.clearTimeout(snipTimeout);
-  snipTimeout = window.setTimeout(() => {
-    snipRoot.classList.remove('snipping');
-  }, 140);
+const setSnipping = (isSnipping) => {
+  snipRoot.classList.toggle('snipping', isSnipping);
+};
+
+document.addEventListener('mousedown', () => setSnipping(true));
+document.addEventListener('mouseup', () => setSnipping(false));
+document.addEventListener('mouseleave', () => setSnipping(false));
+window.addEventListener('blur', () => setSnipping(false));
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'visible') {
+    setSnipping(false);
+  }
 });
