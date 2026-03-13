@@ -155,6 +155,20 @@ h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); margin-bottom: 0.8rem; }
   font-weight: 700;
 }
 
+
+.motto {
+  display: inline-block;
+  margin: 0.15rem 0 0.45rem;
+  padding: 0.32rem 0.7rem;
+  border: 1px solid #b79254;
+  border-radius: 999px;
+  background: linear-gradient(120deg, rgba(159, 47, 63, 0.24), rgba(47, 75, 105, 0.22));
+  color: #f9e7c4;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 .hero-sub { max-width: 56ch; color: #f6efde; font-size: 1.1rem; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.2rem 0; }
 
