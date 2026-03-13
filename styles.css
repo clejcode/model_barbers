@@ -83,6 +83,18 @@ a:hover { color: #fff; }
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -103,6 +115,7 @@ a:hover { color: #fff; }
   justify-content: space-between;
   gap: 1rem;
   min-height: 4.5rem;
+  position: relative;
 }
 
 .logo {
@@ -114,6 +127,43 @@ a:hover { color: #fff; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.barber-pole {
+  position: relative;
+  width: 1.05rem;
+  height: 3rem;
+  border: 1px solid #8e7d68;
+  border-radius: 999px;
+  background:
+    linear-gradient(130deg, #b42f3e 0 18%, #f3efe6 18% 34%, #305983 34% 50%, #f3efe6 50% 66%, #b42f3e 66% 82%, #f3efe6 82% 100%);
+  background-size: 180% 100%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.35);
+  animation: poleSpin 8s linear infinite;
+  cursor: pointer;
+}
+
+.barber-pole::before,
+.barber-pole::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1.4rem;
+  height: 0.3rem;
+  transform: translateX(-50%);
+  border: 1px solid #8e7d68;
+  background: linear-gradient(to bottom, #dfd2bd, #baa790);
+  border-radius: 999px;
+}
+
+.barber-pole::before { top: -0.4rem; }
+.barber-pole::after { bottom: -0.4rem; }
+
+.barber-pole.speed-up { animation-duration: 1.8s; }
+
+@keyframes poleSpin {
+  from { background-position: 0% 0; }
+  to { background-position: 180% 0; }
 }
 
 .nav-toggle {
@@ -190,6 +240,19 @@ h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); margin-bottom: 0.8rem; }
   font-weight: 700;
 }
 
+.street-sign {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #6388a7;
+  border-radius: 0.2rem;
+  color: #d8ecff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  background: linear-gradient(180deg, rgba(47, 75, 105, 0.6), rgba(24, 39, 55, 0.8));
+}
+
 
 .motto {
   display: inline-block;
@@ -225,12 +288,58 @@ h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); margin-bottom: 0.8rem; }
 .hero-panel {
   display: grid;
   gap: 0.9rem;
+  position: relative;
 }
 .hero-media img {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   object-fit: cover;
   aspect-ratio: 4 / 3;
+}
+
+.hero-media {
+  position: relative;
+}
+
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.14), transparent 28%);
+}
+
+.tiny-pigeon {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 9.1rem;
+  filter: grayscale(0.2);
+  opacity: 0.82;
+  transform-origin: bottom center;
+  animation: pigeonBob 6s ease-in-out infinite;
+}
+
+@keyframes pigeonBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.clip-burst {
+  position: fixed;
+  width: 6px;
+  height: 2px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: #ddc89f;
+  opacity: 0;
+  animation: clippingBurst 700ms ease-out forwards;
+  z-index: 1200;
+}
+
+@keyframes clippingBurst {
+  from { transform: translate3d(0, 0, 0) rotate(var(--rot)); opacity: 0.86; }
+  to { transform: translate3d(var(--x), var(--y), 0) rotate(calc(var(--rot) + 40deg)); opacity: 0; }
 }
 
 .decision-box {
@@ -395,5 +504,10 @@ summary { cursor: pointer; font-weight: 700; }
   .btn {
     transition: none;
     transform: none;
+  }
+  .barber-pole,
+  .tiny-pigeon,
+  .clip-burst {
+    animation: none;
   }
 }
