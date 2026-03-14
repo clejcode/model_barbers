@@ -8,6 +8,20 @@ const logo = document.querySelector('.logo');
 const actionButtons = document.querySelectorAll('.btn, .floating-call, .nav-toggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const topStripeTrack = document.querySelector('.top-stripe-track');
+let stripeScrollTimeout;
+
+const triggerStripeScroll = () => {
+  if (!topStripeTrack) return;
+  topStripeTrack.classList.add('is-scrolling');
+  window.clearTimeout(stripeScrollTimeout);
+  stripeScrollTimeout = window.setTimeout(() => {
+    topStripeTrack.classList.remove('is-scrolling');
+  }, 140);
+};
+
+window.addEventListener('scroll', triggerStripeScroll, { passive: true });
+
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
 }
