@@ -122,6 +122,11 @@ a:hover { color: #fff; }
     #f4ede1 60px 80px
   );
   animation: topStripeScroll 9s linear infinite;
+  animation-play-state: paused;
+}
+
+.top-stripe-track.is-scrolling {
+  animation-play-state: running;
 }
 
 .nav-wrap {
