@@ -24,8 +24,8 @@ body {
 }
 
 :root {
-  --cursor-closed: url("scissors-cursor.svg") 12 12;
-  --cursor-open: url("scissors-cursor-snip.svg") 12 12;
+  --cursor-closed: url("Scissors Closed.svg") 12 12;
+  --cursor-open: url("Scissors Open.svg") 12 12;
 }
 
 html,
@@ -106,7 +106,22 @@ a:hover { color: #fff; }
 
 .top-stripe {
   height: 4px;
-  background: linear-gradient(to right, var(--accent), #e6d5b7, var(--accent-2));
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-stripe-track {
+  display: block;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    120deg,
+    var(--accent) 0 20px,
+    #e6d5b7 20px 40px,
+    var(--accent-2) 40px 60px,
+    #f4ede1 60px 80px
+  );
+  animation: topStripeScroll 9s linear infinite;
 }
 
 .nav-wrap {
@@ -129,41 +144,9 @@ a:hover { color: #fff; }
   letter-spacing: 0.03em;
 }
 
-.barber-pole {
-  position: relative;
-  width: 1.05rem;
-  height: 3rem;
-  border: 1px solid #8e7d68;
-  border-radius: 999px;
-  background:
-    linear-gradient(130deg, #b42f3e 0 18%, #f3efe6 18% 34%, #305983 34% 50%, #f3efe6 50% 66%, #b42f3e 66% 82%, #f3efe6 82% 100%);
-  background-size: 180% 100%;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.35);
-  animation: poleSpin 8s linear infinite;
-  cursor: pointer;
-}
-
-.barber-pole::before,
-.barber-pole::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 1.4rem;
-  height: 0.3rem;
-  transform: translateX(-50%);
-  border: 1px solid #8e7d68;
-  background: linear-gradient(to bottom, #dfd2bd, #baa790);
-  border-radius: 999px;
-}
-
-.barber-pole::before { top: -0.4rem; }
-.barber-pole::after { bottom: -0.4rem; }
-
-.barber-pole.speed-up { animation-duration: 1.8s; }
-
-@keyframes poleSpin {
-  from { background-position: 0% 0; }
-  to { background-position: 180% 0; }
+@keyframes topStripeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .nav-toggle {
@@ -505,9 +488,13 @@ summary { cursor: pointer; font-weight: 700; }
     transition: none;
     transform: none;
   }
-  .barber-pole,
   .tiny-pigeon,
   .clip-burst {
     animation: none;
+  }
+
+  .top-stripe-track {
+    animation: none;
+    width: 100%;
   }
 }

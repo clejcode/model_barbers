@@ -4,7 +4,6 @@ const navAnchors = document.querySelectorAll('.nav-links a');
 const copyPhoneButton = document.querySelector('#copy-phone');
 const copyFeedback = document.querySelector('#copy-feedback');
 const yearNode = document.querySelector('#year');
-const barberPole = document.querySelector('.barber-pole');
 const logo = document.querySelector('.logo');
 const actionButtons = document.querySelectorAll('.btn, .floating-call, .nav-toggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -112,14 +111,6 @@ const playTone = async ({ frequency = 560, type = 'triangle', gain = 0.014, dura
   osc.start();
   osc.stop(ctx.currentTime + duration);
 };
-
-if (barberPole) {
-  barberPole.addEventListener('click', () => {
-    barberPole.classList.add('speed-up');
-    window.setTimeout(() => barberPole.classList.remove('speed-up'), 1200);
-    playTone({ frequency: 320, type: 'sine', gain: 0.012, duration: 0.08 });
-  });
-}
 
 if (logo) {
   logo.addEventListener('click', () => {
