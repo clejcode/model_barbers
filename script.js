@@ -8,6 +8,28 @@ const logo = document.querySelector('.logo');
 const actionButtons = document.querySelectorAll('.btn, .floating-call, .nav-toggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const heroStaggerItems = document.querySelectorAll('.stagger-group > *');
+heroStaggerItems.forEach((item, index) => {
+  item.style.setProperty('--item-delay', `${120 + index * 70}ms`);
+});
+
+const scrollItemSelectors = [
+  '.section-head',
+  '.service-table',
+  '.team-photo',
+  '.team-copy',
+  '.location-grid > *',
+  '.faq details'
+];
+
+document.querySelectorAll('.section').forEach((section) => {
+  const items = section.querySelectorAll(scrollItemSelectors.join(', '));
+  items.forEach((item, index) => {
+    item.classList.add('scroll-item');
+    item.style.setProperty('--scroll-delay', `${Math.min(index * 70, 280)}ms`);
+  });
+});
+
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
 }
@@ -50,16 +72,58 @@ if ('IntersectionObserver' in window && revealItems.length > 0) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          entry.target.querySelectorAll('.scroll-item').forEach((item) => item.classList.add('is-visible'));
           obs.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15 }
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -8% 0px'
+    }
   );
 
   revealItems.forEach((item) => observer.observe(item));
 } else {
-  revealItems.forEach((item) => item.classList.add('visible'));
+  revealItems.forEach((item) => {
+    item.classList.add('visible');
+    item.querySelectorAll('.scroll-item').forEach((child) => child.classList.add('is-visible'));
+  });
+}
+
+const parallaxItems = reduceMotion ? [] : Array.from(document.querySelectorAll('.parallax'));
+if (parallaxItems.length > 0) {
+  let ticking = false;
+
+  const updateParallax = () => {
+    const viewportMid = window.innerHeight * 0.5;
+
+    parallaxItems.forEach((item) => {
+      const speed = Number(item.dataset.parallaxSpeed || 0.15);
+      const rect = item.getBoundingClientRect();
+
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        return;
+      }
+
+      const centerOffset = rect.top + rect.height * 0.5 - viewportMid;
+      const shift = Math.max(Math.min(-centerOffset * speed * 0.22, 22), -22);
+      item.style.setProperty('--parallax-shift', `${shift.toFixed(2)}px`);
+    });
+
+    ticking = false;
+  };
+
+  const requestTick = () => {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateParallax);
+    }
+  };
+
+  requestTick();
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
 }
 
 const snipRoot = document.documentElement;
