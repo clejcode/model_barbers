@@ -24,8 +24,8 @@ body {
 }
 
 :root {
-  --cursor-closed: url("Scissors Closed.svg") 12 12;
-  --cursor-open: url("Scissors Open.svg") 12 12;
+  --cursor-closed: url("Scissors Closed.png") 12 12;
+  --cursor-open: url("Scissors Open.png") 12 12;
 }
 
 html,
