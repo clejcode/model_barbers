@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="./scissors-closed.png" type="image/png" />
@@ -35,7 +35,7 @@
     </div>
     <div class="container nav-wrap">
       <a href="#top" class="logo" aria-label="Model Barbers home">
-        <img src="./scissors-closed-32.png" alt="Model Barbers logo" width="28" height="28" loading="eager" decoding="async" />
+        <img src="./scissors-closed-32.png" alt="" width="22" height="22" loading="eager" decoding="async" />
         <span>Model Barbers</span>
       </a>
       <nav aria-label="Primary navigation">
@@ -53,42 +53,37 @@
 
   <main id="main-content">
 
-    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <!-- ── HERO ──────────────────────────────────────────────── -->
     <section class="hero visible" aria-labelledby="hero-title">
       <div class="container hero-grid">
+
         <div class="hero-content stagger-group">
-          <p class="eyebrow">Williamsburg, Brooklyn &nbsp;·&nbsp; Walk-ins welcome</p>
-          <p class="street-sign" aria-hidden="true">Union Ave &nbsp;·&nbsp; Since 1920</p>
-          <p class="motto"><em>Brand New Man</em></p>
-          <h1 id="hero-title">Need a clean<br>cut today?</h1>
-          <p class="hero-sub">Fast, classic barber cuts at neighborhood pricing from the shop that's been making brand new men since 1920. Most people call first to check the wait.</p>
+          <p class="eyebrow">Est. 1920 &nbsp;·&nbsp; 452 Union Ave, Williamsburg</p>
+
+          <h1 id="hero-title">
+            Need a clean<br>
+            <span class="h1-indent">cut today?</span>
+          </h1>
+
+          <p class="hero-sub">Fast, classic barber cuts at neighborhood pricing from the shop that's been making brand new men since 1920. Call first to check the wait, then walk right in.</p>
 
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="tel:+17183879487">Call to check wait &mdash; (718) 387-9487</a>
-            <a class="btn btn-outline" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn btn-primary" href="tel:+17183879487">(718) 387-9487 &mdash; Call to check wait</a>
+            <a class="btn btn-ghost" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Get directions ↗</a>
           </div>
 
-          <ul class="quick-facts" aria-label="Key decisions at a glance">
-            <li><strong>Since:</strong> 1920 &nbsp;&middot;&nbsp; over 100 years in Williamsburg</li>
-            <li><strong>Hours:</strong> Mon–Fri 9:00–6:30, Sat 9:00–6:00, Sun closed</li>
-            <li><strong>Haircut:</strong> $30</li>
-            <li><strong>Payment:</strong> Cash only</li>
+          <ul class="quick-facts" aria-label="Key facts">
+            <li><span class="fact-label">Hours</span><span class="fact-val">Mon–Fri 9–6:30 &nbsp;·&nbsp; Sat 9–6 &nbsp;·&nbsp; Sun closed</span></li>
+            <li><span class="fact-label">Haircut</span><span class="fact-val">$30 &nbsp;·&nbsp; Cash only</span></li>
+            <li><span class="fact-label">Rating</span><span class="fact-val"><a href="https://www.google.com/search?q=Model+Barbers+452+Union+Ave+Brooklyn+NY+11211+reviews" target="_blank" rel="noopener">4.8 ★ on 250+ Google reviews</a></span></li>
           </ul>
-
-          <p class="review-score">
-            <a href="https://www.google.com/search?q=Model+Barbers+452+Union+Ave+Brooklyn+NY+11211+reviews" target="_blank" rel="noopener" aria-label="View Model Barbers Google reviews">
-              ⭐ 4.8 on 250+ Google Reviews
-            </a>
-          </p>
         </div>
 
-        <aside class="hero-panel" aria-label="Visit details">
-          <figure class="hero-media parallax" data-parallax-speed="0.2">
+        <aside class="hero-panel" aria-label="Shop photo and visit details">
+          <figure class="hero-media parallax" data-parallax-speed="0.18">
             <img
               src="./storefront.jpg"
-              srcset="./storefront.jpg 1200w"
-              sizes="(max-width: 768px) 100vw, 52vw"
-              alt="Exterior storefront for Model Barbers in Williamsburg"
+              alt="Model Barbers storefront on Union Ave, Williamsburg"
               width="1200"
               height="900"
               loading="eager"
@@ -96,30 +91,26 @@
             />
             <figcaption class="sr-only">Street-view storefront of Model Barbers in Williamsburg, Brooklyn.</figcaption>
           </figure>
-<div class="decision-box">
-            <h2>Visit Model Barbers</h2>
-            <p><a href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">452 Union Ave, Brooklyn, NY 11211</a></p>
-            <p><a href="tel:+17183879487">(718) 387-9487</a></p>
-            <p class="assistive">Best next step: call now if timing matters.</p>
+          <div class="decision-box">
+            <p class="decision-label">Visit</p>
+            <p class="decision-addr"><a href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">452 Union Ave, Brooklyn, NY 11211</a></p>
+            <p class="decision-phone"><a href="tel:+17183879487">(718) 387-9487</a></p>
+            <p class="decision-note">Walk-ins welcome. Call ahead if timing matters.</p>
           </div>
         </aside>
-      </div>
 
-      <div class="scroll-cue" aria-hidden="true">
-        <span class="scroll-cue-line"></span>
-        <span class="scroll-cue-label">Scroll</span>
       </div>
     </section>
 
-    <!-- ── MARQUEE STRIP ──────────────────────────────────────── -->
+    <!-- ── MARQUEE ────────────────────────────────────────────── -->
     <div class="marquee-strip" aria-hidden="true">
       <div class="marquee-track" id="marquee-track">
-        <span class="marquee-content">Brand New Man &nbsp;&middot;&nbsp; Est. 1920 &nbsp;&middot;&nbsp; Williamsburg, Brooklyn &nbsp;&middot;&nbsp; Cash Only &nbsp;&middot;&nbsp; Walk-Ins Welcome &nbsp;&middot;&nbsp; Roman &nbsp;&middot;&nbsp; Jack &nbsp;&middot;&nbsp; Alec &nbsp;&middot;&nbsp; 452 Union Ave &nbsp;&middot;&nbsp; (718) 387-9487 &nbsp;&middot;&nbsp;</span>
-        <span class="marquee-content" aria-hidden="true">Brand New Man &nbsp;&middot;&nbsp; Est. 1920 &nbsp;&middot;&nbsp; Williamsburg, Brooklyn &nbsp;&middot;&nbsp; Cash Only &nbsp;&middot;&nbsp; Walk-Ins Welcome &nbsp;&middot;&nbsp; Roman &nbsp;&middot;&nbsp; Jack &nbsp;&middot;&nbsp; Alec &nbsp;&middot;&nbsp; 452 Union Ave &nbsp;&middot;&nbsp; (718) 387-9487 &nbsp;&middot;&nbsp;</span>
+        <span class="marquee-content"><em>Brand New Man</em> &nbsp;·&nbsp; Est. 1920 &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alec &nbsp;·&nbsp; 452 Union Ave &nbsp;·&nbsp; (718) 387-9487 &nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-content" aria-hidden="true"><em>Brand New Man</em> &nbsp;·&nbsp; Est. 1920 &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alec &nbsp;·&nbsp; 452 Union Ave &nbsp;·&nbsp; (718) 387-9487 &nbsp;·&nbsp;&nbsp;</span>
       </div>
     </div>
 
-    <!-- ── STAT STRIP ─────────────────────────────────────────── -->
+    <!-- ── STATS ──────────────────────────────────────────────── -->
     <section class="stat-strip" aria-label="Shop at a glance">
       <div class="container stat-grid">
         <div class="stat">
@@ -132,19 +123,19 @@
           <div class="stat-num-wrap">
             <span class="stat-prefix">$</span><span class="stat-num" data-count="30">0</span>
           </div>
-          <p>Haircut</p>
+          <p>A haircut</p>
         </div>
         <div class="stat">
           <div class="stat-num-wrap">
             <span class="stat-num" data-count="3">0</span>
           </div>
-          <p>Master Barbers</p>
+          <p>Master barbers</p>
         </div>
         <div class="stat">
           <div class="stat-num-wrap">
             <span class="stat-num" data-count="4.8" data-decimal="1">0</span>
           </div>
-          <p>Google Rating</p>
+          <p>Stars on Google</p>
         </div>
       </div>
     </section>
@@ -152,38 +143,48 @@
     <!-- ── SERVICES ───────────────────────────────────────────── -->
     <section class="services section reveal" id="services" aria-labelledby="services-title">
       <div class="container">
-        <div class="section-head">
+        <header class="section-head">
           <h2 id="services-title">Services &amp; Pricing</h2>
-          <p class="section-intro">Straight answers before you come in.</p>
-        </div>
+          <p class="section-sub">Confirmed pricing. No surprises.</p>
+        </header>
         <div class="service-table" role="table" aria-label="Service prices">
           <div class="service-row" role="row">
-            <p role="cell">Men's Haircut</p>
-            <p role="cell" class="price">$30</p>
+            <span role="cell" class="service-name">Men's Haircut</span>
+            <span class="service-leader" aria-hidden="true"></span>
+            <span role="cell" class="price">$30</span>
           </div>
           <div class="service-row" role="row">
-            <p role="cell">Beard Trim</p>
-            <p role="cell" class="price">Ask in shop</p>
+            <span role="cell" class="service-name">Beard Trim</span>
+            <span class="service-leader" aria-hidden="true"></span>
+            <span role="cell" class="price">Ask in shop</span>
           </div>
           <div class="service-row" role="row">
-            <p role="cell">Hot Towel Shave</p>
-            <p role="cell" class="price">Ask in shop</p>
+            <span role="cell" class="service-name">Hot Towel Shave</span>
+            <span class="service-leader" aria-hidden="true"></span>
+            <span role="cell" class="price">Ask in shop</span>
           </div>
           <div class="service-row" role="row">
-            <p role="cell">Head Shave</p>
-            <p role="cell" class="price">Ask in shop</p>
+            <span role="cell" class="service-name">Head Shave</span>
+            <span class="service-leader" aria-hidden="true"></span>
+            <span role="cell" class="price">Ask in shop</span>
           </div>
         </div>
-        <p class="cash-notice">Cash only &nbsp;&middot;&nbsp; No booking required &nbsp;&middot;&nbsp; Walk right in</p>
+        <p class="service-note">Cash only &nbsp;·&nbsp; No appointment needed &nbsp;·&nbsp; Walk right in</p>
       </div>
     </section>
+
+    <!-- ── BRAND STATEMENT ────────────────────────────────────── -->
+    <div class="brand-statement" aria-hidden="true">
+      <p class="bs-line">Brand</p>
+      <p class="bs-line bs-indent">New Man.</p>
+    </div>
 
     <!-- ── TEAM ───────────────────────────────────────────────── -->
     <section class="section team reveal" id="team" aria-labelledby="team-title">
       <div class="team-media-wrap" data-reveal="clip">
         <img
           src="./barbers headshot.jpeg"
-          alt="Model Barbers team headshot"
+          alt="Model Barbers team"
           width="1200"
           height="900"
           loading="lazy"
@@ -191,14 +192,14 @@
           class="team-full-img parallax"
           data-parallax-speed="0.1"
         />
-        <div class="team-overlay" aria-hidden="true"></div>
+        <div class="team-overlay"></div>
       </div>
       <div class="container team-body">
         <article class="team-copy">
           <h2 id="team-title">Three barbers.<br><em>One standard.</em></h2>
-          <p>Roman, Jack, and Alec are known for quick, consistent cuts for neighborhood regulars and first-timers—and for sending people out looking like a brand new man.</p>
-          <p>Model Barbers opened in 1920 and has kept that standard for over a century.</p>
-          <a href="https://www.google.com/search?q=Model+Barbers+452+Union+Ave+Brooklyn+NY+11211+reviews" target="_blank" rel="noopener" class="btn btn-outline">Read Google Reviews</a>
+          <p>Roman, Jack, and Alec have been turning neighborhood regulars and first-timers into brand new men for decades. Fast, consistent, no-nonsense cuts.</p>
+          <p>Model Barbers has held that standard since 1920.</p>
+          <a href="https://www.google.com/search?q=Model+Barbers+452+Union+Ave+Brooklyn+NY+11211+reviews" target="_blank" rel="noopener" class="btn btn-ghost">Read the reviews ↗</a>
         </article>
       </div>
     </section>
@@ -208,19 +209,21 @@
       <div class="container location-grid">
         <div class="location-info">
           <h2 id="location-title">Location &amp; Hours</h2>
-          <address class="location-address">452 Union Ave, Brooklyn, NY 11211</address>
-          <ul class="check-list">
-            <li>Mon–Fri &nbsp; 9:00 AM – 6:30 PM</li>
-            <li>Saturday &nbsp; 9:00 AM – 6:00 PM</li>
-            <li>Sunday &nbsp; Closed</li>
-            <li>Cash only</li>
-          </ul>
-          <div class="hero-ctas">
+          <address class="location-address">452 Union Ave<br>Brooklyn, NY 11211</address>
+          <table class="hours-table">
+            <tbody>
+              <tr><th>Mon – Fri</th><td>9:00 AM – 6:30 PM</td></tr>
+              <tr><th>Saturday</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><th>Sunday</th><td>Closed</td></tr>
+              <tr class="hours-note"><th>Payment</th><td>Cash only</td></tr>
+            </tbody>
+          </table>
+          <div class="location-ctas">
             <a class="btn btn-primary" href="tel:+17183879487">Call the shop</a>
-            <a class="btn btn-outline" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn btn-ghost" href="https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Open in Maps ↗</a>
           </div>
         </div>
-        <div class="map-wrap parallax" data-parallax-speed="0.12">
+        <div class="map-wrap parallax" data-parallax-speed="0.08">
           <iframe
             title="Map showing Model Barbers in Williamsburg, Brooklyn"
             src="https://www.google.com/maps?q=452%20Union%20Ave%2C%20Brooklyn%2C%20NY%2011211&output=embed"
@@ -233,49 +236,48 @@
 
     <!-- ── FAQ ────────────────────────────────────────────────── -->
     <section class="section faq reveal" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <h2 id="faq-title">FAQ</h2>
-        <details>
-          <summary>Do you take walk-ins?</summary>
-          <p>Yes, walk-ins are welcome every day we are open.</p>
-        </details>
-        <details>
-          <summary>How much is a haircut?</summary>
-          <p>Haircuts are $30. Pricing for other services is confirmed in shop.</p>
-        </details>
-        <details>
-          <summary>What should I do if I'm on a tight schedule?</summary>
-          <p>Call first and we'll tell you the current wait before you head over.</p>
-        </details>
+      <div class="container faq-grid">
+        <h2 id="faq-title">Common<br>Questions</h2>
+        <div class="faq-items">
+          <details>
+            <summary>Do you take walk-ins?</summary>
+            <p>Yes — walk-ins are welcome every day we're open. No booking required.</p>
+          </details>
+          <details>
+            <summary>How much is a haircut?</summary>
+            <p>$30. Pricing for beard trims, shaves, and other services is set in shop.</p>
+          </details>
+          <details>
+            <summary>What if I'm on a tight schedule?</summary>
+            <p>Call ahead. We'll tell you the current wait before you head over.</p>
+          </details>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h2 class="footer-title">Model Barbers</h2>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">Model Barbers</p>
         <address>
-          452 Union Ave, Brooklyn, NY 11211<br />
+          452 Union Ave, Brooklyn, NY 11211<br>
           <a href="tel:+17183879487">(718) 387-9487</a>
         </address>
-        <p>Classic barber shop in Williamsburg, Brooklyn — making a <em>"Brand New Man"</em> since 1920.</p>
+        <p class="footer-tag"><em>"Brand New Man"</em> — since 1920</p>
       </div>
-      <div>
-        <h2 class="footer-title">Quick Links</h2>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Barbers</a></li>
-          <li><a href="#location">Location</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="https://instagram.com/modelbarbers1920" target="_blank" rel="noopener">@modelbarbers1920</a></li>
-        </ul>
-      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#services">Services</a>
+        <a href="#team">Barbers</a>
+        <a href="#location">Location</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://instagram.com/modelbarbers1920" target="_blank" rel="noopener">Instagram ↗</a>
+      </nav>
     </div>
-    <div class="container seo-block">
-      <p>Walk in for a classic cut, or call first to check current wait times.</p>
-      <p class="copyright">&copy; <span id="year"></span> Model Barbers. All rights reserved.</p>
+    <div class="container footer-foot">
+      <p>Walk in for a classic cut, or call to check the wait.</p>
+      <p class="copyright">&copy; <span id="year"></span> Model Barbers</p>
     </div>
   </footer>
 
