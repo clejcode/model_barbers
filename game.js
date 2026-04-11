@@ -5,23 +5,14 @@
 (function () {
   'use strict';
 
-  /* ── Trigger ──────────────────────────────────────────────── */
-  const CLICKS_NEEDED = 5;
-  const TIME_WINDOW   = 3000;
-  let clickTimes = [];
-
+  /* ── Trigger — single click on the header logo ───────────── */
   document.addEventListener('DOMContentLoaded', () => {
     const logo = document.querySelector('.logo');
     if (!logo) return;
 
-    logo.addEventListener('click', () => {
-      const now = Date.now();
-      clickTimes = clickTimes.filter(t => now - t < TIME_WINDOW);
-      clickTimes.push(now);
-      if (clickTimes.length >= CLICKS_NEEDED) {
-        clickTimes = [];
-        launchGame();
-      }
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      launchGame();
     });
   });
 
