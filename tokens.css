@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════════════
+   MODEL BARBERS — Design Tokens
+   Single source of truth. Nothing hardcoded in styles.css.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* ── Type Scale ─────────────────────────────────────────── */
+  --text-xs:   0.75rem;    /* 12px — captions, labels      */
+  --text-sm:   0.875rem;   /* 14px — meta, secondary       */
+  --text-base: 1rem;       /* 16px — body                  */
+  --text-lg:   1.125rem;   /* 18px — lead copy             */
+  --text-xl:   1.25rem;    /* 20px — subheadings           */
+  --text-2xl:  1.5rem;     /* 24px                         */
+  --text-3xl:  2rem;       /* 32px                         */
+  --text-4xl:  2.75rem;    /* 44px — section headers       */
+  --text-hero: clamp(3rem, 8vw, 6rem);   /* fluid hero     */
+
+  /* ── Colors — base dark theme ───────────────────────────── */
+  --bg:             #0E0C0A;   /* page background            */
+  --bg-elevated:    #141210;   /* cards, surfaces            */
+  --bg-inset:       #0A0908;   /* recessed areas             */
+
+  --text-primary:   #E8DECA;   /* main text                  */
+  --text-secondary: #9A8E7C;   /* secondary / muted          */
+  --text-faint:     #52483F;   /* very muted                 */
+
+  --accent:         #B82030;   /* barber red — use sparingly */
+  --accent-hi:      #D02438;   /* red on hover               */
+  --gold:           #9A7420;   /* gold details               */
+  --gold-light:     #B89040;   /* lighter gold               */
+
+  --border:         #1C1914;   /* hairline / structural      */
+  --border-vis:     #28231E;   /* visible rules              */
+  --border-hi:      #3C342C;   /* highlighted border         */
+
+  /* ── Colors — light surface (quote blocks, etc.) ─────────── */
+  --surface-warm:   #EFE7D2;   /* warm cream surface         */
+  --ink:            #1A1614;   /* text on cream              */
+  --ink-muted:      #5C5046;   /* muted on cream             */
+
+  /* ── Spacing (8px base unit) ────────────────────────────── */
+  --sp-1:  8px;
+  --sp-2:  16px;
+  --sp-3:  24px;
+  --sp-4:  32px;
+  --sp-6:  48px;
+  --sp-8:  64px;
+  --sp-12: 96px;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --max-w:       1200px;
+  --max-w-prose: 65ch;
+  --header-h:    3.5rem;   /* 56px */
+  --header-slim: 2.75rem;  /* 44px — on scroll */
+  --stripe-h:    3px;
+
+  /* ── Radii — intentionally minimal ─────────────────────── */
+  --radius-sm:  2px;
+  --radius:     3px;
+  --radius-lg:  4px;
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-std:    cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:    120ms;
+  --dur-mid:     260ms;
+  --dur-slow:    560ms;
+  --dur-reveal:  720ms;
+}

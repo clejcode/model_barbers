@@ -4,208 +4,183 @@
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ── Stagger delays for hero ──────────────────────────────── */
-document.querySelectorAll('.stagger-group > *').forEach((item, i) => {
-  item.style.setProperty('--item-delay', `${120 + i * 70}ms`);
-});
-
 /* ── Year ─────────────────────────────────────────────────── */
-const yearNode = document.querySelector('#year');
-if (yearNode) yearNode.textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ── Nav toggle ───────────────────────────────────────────── */
-const navToggle  = document.querySelector('.nav-toggle');
-const navLinks   = document.querySelector('#main-nav');
-const navAnchors = document.querySelectorAll('.nav-links a');
-
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-  navAnchors.forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }));
+/* ═══════════════════════════════════════════════════════════
+   HEADER — slim on scroll
+   ═══════════════════════════════════════════════════════════ */
+const header = document.querySelector('.site-header');
+if (header) {
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('slim', y > 60);
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
-/* ── Barber-pole stripe — scroll-linked direction + speed ─── */
+/* ═══════════════════════════════════════════════════════════
+   MOBILE NAV OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+const navToggle  = document.querySelector('.nav-toggle');
+const navOverlay = document.getElementById('nav-overlay');
+const navOverlayLinks = navOverlay ? navOverlay.querySelectorAll('a') : [];
+
+const openNav = () => {
+  navOverlay.classList.add('open');
+  navOverlay.setAttribute('aria-hidden', 'false');
+  navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeNav = () => {
+  navOverlay.classList.remove('open');
+  navOverlay.setAttribute('aria-hidden', 'true');
+  navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+};
+
+if (navToggle && navOverlay) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navOverlay.classList.contains('open');
+    isOpen ? closeNav() : openNav();
+  });
+
+  navOverlayLinks.forEach(a => a.addEventListener('click', closeNav));
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navOverlay.classList.contains('open')) closeNav();
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BARBER-POLE STRIPE — scroll velocity + direction
+   ═══════════════════════════════════════════════════════════ */
 const stripeTrack = document.querySelector('.top-stripe-track');
 if (stripeTrack && !reduceMotion) {
-  // Width of one tile repeat so we can loop seamlessly
-  const TILE_W     = 64;          // matches repeating-gradient segment (16px × 4)
-  const DECAY      = 0.88;        // how quickly velocity bleeds off each frame
-  const BASE_DRIFT = 0;           // px/frame at rest (0 = stationary when not scrolling)
+  const TILE_W = 40;   // matches one gradient repeat (4 × 10px)
+  const DECAY  = 0.88;
 
-  let stripePos   = 0;
-  let stripeVel   = 0;
-  let lastSY      = window.scrollY;
+  let stripePos = 0;
+  let stripeVel = 0;
+  let lastSY    = window.scrollY;
 
   window.addEventListener('scroll', () => {
-    const dy    = window.scrollY - lastSY;
-    // Scale scroll delta → stripe pixels per frame
-    // negative dy (scroll up) → moves stripe left; positive → moves right
-    stripeVel   = dy * 0.6;
-    lastSY      = window.scrollY;
+    const dy  = window.scrollY - lastSY;
+    stripeVel = dy * 0.55;
+    lastSY    = window.scrollY;
   }, { passive: true });
 
   const tickStripe = () => {
-    stripeVel  *= DECAY;
-    stripePos  += stripeVel;
-
-    // Seamless loop — keep position within one tile width
-    stripePos   = ((stripePos % TILE_W) + TILE_W) % TILE_W;
-
+    stripeVel *= DECAY;
+    stripePos += stripeVel;
+    stripePos  = ((stripePos % TILE_W) + TILE_W) % TILE_W;
     stripeTrack.style.transform = `translateX(${stripePos.toFixed(2)}px)`;
     requestAnimationFrame(tickStripe);
   };
-
   requestAnimationFrame(tickStripe);
 }
 
-/* ══════════════════════════════════════════════════════════
-   SCROLL VELOCITY MARQUEE
-   ══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   VELOCITY MARQUEE
+   ═══════════════════════════════════════════════════════════ */
 const marqueeTrack = document.getElementById('marquee-track');
-
 if (marqueeTrack && !reduceMotion) {
-  let position      = 0;
-  let baseSpeed     = 0.45;   // px per frame at rest
-  let velocity      = 0;
-  let lastScrollY   = window.scrollY;
-  let lastScrollTime = performance.now();
-  let raf;
+  let pos       = 0;
+  let vel       = 0;
+  let baseSpeed = 0.4;
+  let lastSY2   = window.scrollY;
 
-  // Measure the width of one content copy
-  const getContentWidth = () => {
+  window.addEventListener('scroll', () => {
+    const dy = window.scrollY - lastSY2;
+    vel      = dy * 0.5;
+    lastSY2  = window.scrollY;
+  }, { passive: true });
+
+  const getW = () => {
     const first = marqueeTrack.querySelector('.marquee-content');
     return first ? first.offsetWidth : 0;
   };
 
-  const tick = (now) => {
-    const contentW = getContentWidth();
-    if (contentW === 0) { raf = requestAnimationFrame(tick); return; }
-
-    // Decay velocity toward 0
-    velocity *= 0.92;
-
-    const speed = baseSpeed + Math.abs(velocity) * 0.04;
-    position -= speed;
-
-    // Loop seamlessly
-    if (Math.abs(position) >= contentW) {
-      position += contentW;
-    }
-
-    marqueeTrack.style.transform = `translateX(${position}px)`;
-    raf = requestAnimationFrame(tick);
+  const tickMarquee = () => {
+    vel     *= 0.9;
+    const speed = baseSpeed + Math.abs(vel) * 0.03;
+    pos    -= speed;
+    const w = getW();
+    if (w > 0 && Math.abs(pos) >= w) pos += w;
+    marqueeTrack.style.transform = `translateX(${pos.toFixed(2)}px)`;
+    requestAnimationFrame(tickMarquee);
   };
-
-  raf = requestAnimationFrame(tick);
-
-  window.addEventListener('scroll', () => {
-    const now    = performance.now();
-    const dy     = window.scrollY - lastScrollY;
-    const dt     = Math.max(now - lastScrollTime, 1);
-    velocity     = (dy / dt) * 16; // scale to ~px/frame
-    lastScrollY   = window.scrollY;
-    lastScrollTime = now;
-  }, { passive: true });
-
-} else if (marqueeTrack) {
-  // Reduced motion: simple CSS animation fallback
-  marqueeTrack.style.animation = 'marqueeStatic 30s linear infinite';
+  requestAnimationFrame(tickMarquee);
 }
 
-/* ══════════════════════════════════════════════════════════
-   INTERSECTION OBSERVER — shared setup
-   ══════════════════════════════════════════════════════════ */
-const observeOnce = (selector, className, options = {}) => {
-  const els = document.querySelectorAll(selector);
-  if (!els.length) return;
-  const obs = new IntersectionObserver((entries, o) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add(className);
-        o.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px', ...options });
-  els.forEach(el => obs.observe(el));
-};
-
-/* ── Section reveals ──────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   INTERSECTION OBSERVERS
+   ═══════════════════════════════════════════════════════════ */
 if ('IntersectionObserver' in window) {
+
+  /* Section reveals */
   const revealObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Also trigger child scroll-items
-        entry.target.querySelectorAll('.scroll-item').forEach(item => {
-          item.classList.add('is-visible');
-        });
-        obs.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('.scroll-item').forEach((el, i) => {
+        el.style.setProperty('--scroll-delay', `${Math.min(i * 80, 320)}ms`);
+        el.classList.add('is-visible');
+      });
+      obs.unobserve(entry.target);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-}
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObs.observe(el));
 
-/* ── Scroll-item stagger inside sections ─────────────────── */
-const scrollItemSelectors = [
-  '.section-head', '.service-table',
-  '.team-copy', '.location-grid > *',
-  '.faq details', '.cash-notice',
-];
-document.querySelectorAll('.section').forEach(section => {
-  section.querySelectorAll(scrollItemSelectors.join(',')).forEach((item, i) => {
-    item.classList.add('scroll-item');
-    item.style.setProperty('--scroll-delay', `${Math.min(i * 80, 300)}ms`);
-  });
-});
+  /* Clip-path image reveals */
+  const clipObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px' });
 
-/* ── Clip-path image reveals ──────────────────────────────── */
-observeOnce('[data-reveal="clip"]', 'is-revealed', {
-  threshold: 0,
-  rootMargin: '0px 0px 0px 0px',
-});
+  document.querySelectorAll('[data-reveal="clip"]').forEach(el => clipObs.observe(el));
 
-/* ══════════════════════════════════════════════════════════
-   STAT COUNTER ANIMATION
-   ══════════════════════════════════════════════════════════ */
-const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+  /* Stat counters */
+  const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
 
-const animateCounter = (el) => {
-  const target   = parseFloat(el.dataset.count);
-  const decimals = parseInt(el.dataset.decimal || '0', 10);
-  const duration = 1600;
-  const start    = performance.now();
-
-  const step = (now) => {
-    const elapsed  = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const value    = easeOutQuart(progress) * target;
-    el.textContent = value.toFixed(decimals);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target.toFixed(decimals);
+  const animateCount = (el) => {
+    const target   = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimal || '0', 10);
+    const dur      = 1400;
+    const start    = performance.now();
+    const step = now => {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = (easeOutQuart(p) * target).toFixed(decimals);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(decimals);
+    };
+    requestAnimationFrame(step);
   };
 
-  requestAnimationFrame(step);
-};
-
-if ('IntersectionObserver' in window) {
   const statObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Reveal the stat card
-        entry.target.classList.add('is-visible');
-        // Start counter
-        const numEl = entry.target.querySelector('.stat-num');
-        if (numEl && !reduceMotion) animateCounter(numEl);
-        else if (numEl) numEl.textContent = parseFloat(numEl.dataset.count).toFixed(parseInt(numEl.dataset.decimal || '0', 10));
-        obs.unobserve(entry.target);
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      const numEl = entry.target.querySelector('.stat-num');
+      if (numEl) {
+        if (reduceMotion) {
+          const t = parseFloat(numEl.dataset.count);
+          numEl.textContent = t.toFixed(parseInt(numEl.dataset.decimal || '0', 10));
+        } else {
+          animateCount(numEl);
+        }
       }
+      obs.unobserve(entry.target);
     });
   }, { threshold: 0.3 });
 
@@ -215,107 +190,112 @@ if ('IntersectionObserver' in window) {
   });
 }
 
-/* ══════════════════════════════════════════════════════════
-   PARALLAX
-   ══════════════════════════════════════════════════════════ */
-const parallaxItems = reduceMotion ? [] : Array.from(document.querySelectorAll('.parallax'));
+/* Stagger hero items */
+document.querySelectorAll('.stagger-group > *').forEach((el, i) => {
+  el.style.setProperty('--item-delay', `${80 + i * 65}ms`);
+});
 
-if (parallaxItems.length > 0) {
+/* ═══════════════════════════════════════════════════════════
+   PARALLAX
+   ═══════════════════════════════════════════════════════════ */
+const parallaxEls = reduceMotion ? [] : Array.from(document.querySelectorAll('[data-parallax-speed]'));
+
+if (parallaxEls.length) {
   let ticking = false;
 
   const updateParallax = () => {
-    const viewMid = window.innerHeight * 0.5;
-    parallaxItems.forEach(item => {
-      const speed = Number(item.dataset.parallaxSpeed || 0.15);
-      const rect  = item.getBoundingClientRect();
+    const midY = window.innerHeight * 0.5;
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallaxSpeed || 0.1);
+      const rect  = el.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      const offset = rect.top + rect.height * 0.5 - viewMid;
-      const shift  = Math.max(Math.min(-offset * speed * 0.22, 28), -28);
-      item.style.setProperty('--parallax-shift', `${shift.toFixed(2)}px`);
+      const offset = (rect.top + rect.height * 0.5 - midY) * speed * -0.2;
+      const clamped = Math.max(Math.min(offset, 30), -30);
+      el.style.setProperty('--parallax-shift', `${clamped.toFixed(2)}px`);
     });
     ticking = false;
   };
 
-  const requestTick = () => {
+  const reqTick = () => {
     if (!ticking) { ticking = true; requestAnimationFrame(updateParallax); }
   };
 
-  requestTick();
-  window.addEventListener('scroll',  requestTick, { passive: true });
-  window.addEventListener('resize',  requestTick);
+  reqTick();
+  window.addEventListener('scroll', reqTick, { passive: true });
+  window.addEventListener('resize', reqTick);
 }
 
-/* ══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    SCISSORS CURSOR
-   ══════════════════════════════════════════════════════════ */
-const snipRoot = document.documentElement;
-const setSnipping = on => snipRoot.classList.toggle('snipping', on);
+   ═══════════════════════════════════════════════════════════ */
+const htmlEl     = document.documentElement;
+const setSnip    = on => htmlEl.classList.toggle('snipping', on);
 
-document.addEventListener('mousedown',      () => setSnipping(true));
-document.addEventListener('mouseup',        () => setSnipping(false));
-document.addEventListener('mouseleave',     () => setSnipping(false));
-window.addEventListener('blur',             () => setSnipping(false));
+document.addEventListener('mousedown',        () => setSnip(true));
+document.addEventListener('mouseup',          () => setSnip(false));
+document.addEventListener('mouseleave',       () => setSnip(false));
+window.addEventListener('blur',               () => setSnip(false));
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState !== 'visible') setSnipping(false);
+  if (document.visibilityState !== 'visible') setSnip(false);
 });
 
-/* ══════════════════════════════════════════════════════════
-   AUDIO ENGINE
-   ══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   AUDIO + CLIP BURST (interaction details)
+   ═══════════════════════════════════════════════════════════ */
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
-let soundEngine;
+let audioCtx;
 
-const ensureAudio = async () => {
+const getCtx = async () => {
   if (!AudioCtx) return null;
-  if (!soundEngine) soundEngine = new AudioCtx();
-  if (soundEngine.state === 'suspended') {
-    try { await soundEngine.resume(); } catch { return null; }
+  if (!audioCtx) audioCtx = new AudioCtx();
+  if (audioCtx.state === 'suspended') {
+    try { await audioCtx.resume(); } catch { return null; }
   }
-  return soundEngine;
+  return audioCtx;
 };
 
-const playTone = async ({ frequency = 560, type = 'triangle', gain = 0.014, duration = 0.06 }) => {
-  const ctx = await ensureAudio();
+const playTone = async ({ freq = 560, type = 'triangle', gain = 0.012, dur = 0.06 }) => {
+  const ctx = await getCtx();
   if (!ctx) return;
   const osc = ctx.createOscillator();
   const amp = ctx.createGain();
   osc.type = type;
-  osc.frequency.setValueAtTime(frequency, ctx.currentTime);
+  osc.frequency.setValueAtTime(freq, ctx.currentTime);
   amp.gain.setValueAtTime(gain, ctx.currentTime);
-  amp.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+  amp.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
   osc.connect(amp); amp.connect(ctx.destination);
-  osc.start(); osc.stop(ctx.currentTime + duration);
+  osc.start(); osc.stop(ctx.currentTime + dur);
 };
 
-/* Logo click tone */
-const logo = document.querySelector('.logo');
-if (logo) {
-  logo.addEventListener('click', () => {
-    playTone({ frequency: 740, type: 'square', gain: 0.012, duration: 0.04 });
-    setTimeout(() => playTone({ frequency: 540, type: 'square', gain: 0.01, duration: 0.04 }), 45);
-  });
-}
-
-/* ── Hair-clipping burst + hover tone ────────────────────── */
-const spawnClippings = (event) => {
+const spawnClippings = (e) => {
   if (reduceMotion) return;
-  const x = event.clientX || window.innerWidth * 0.5;
-  const y = event.clientY || window.innerHeight * 0.5;
-  for (let i = 0; i < 7; i++) {
+  const x = e.clientX ?? window.innerWidth * 0.5;
+  const y = e.clientY ?? window.innerHeight * 0.5;
+  for (let i = 0; i < 6; i++) {
     const chip = document.createElement('span');
     chip.className = 'clip-burst';
-    chip.style.cssText = `left:${x}px;top:${y}px`;
-    chip.style.setProperty('--x', `${(Math.random() - 0.5) * 30}px`);
-    chip.style.setProperty('--y', `${Math.random() * -26 - 8}px`);
+    chip.style.left = `${x}px`;
+    chip.style.top  = `${y}px`;
+    chip.style.setProperty('--x',   `${(Math.random() - 0.5) * 28}px`);
+    chip.style.setProperty('--y',   `${Math.random() * -22 - 6}px`);
     chip.style.setProperty('--rot', `${Math.random() * 180}deg`);
     document.body.append(chip);
     chip.addEventListener('animationend', () => chip.remove(), { once: true });
   }
 };
 
-document.querySelectorAll('.btn, .floating-call, .nav-toggle').forEach(btn => {
+document.querySelectorAll('.btn, .floating-call').forEach(btn => {
   btn.addEventListener('pointerenter', () => {
-    playTone({ frequency: 640 + Math.random() * 80, type: 'triangle', gain: 0.006, duration: 0.03 });
+    playTone({ freq: 640 + Math.random() * 80, type: 'triangle', gain: 0.005, dur: 0.03 });
   });
   btn.addEventListener('click', spawnClippings);
 });
+
+/* Logo click chime */
+const logo = document.querySelector('.logo');
+if (logo) {
+  logo.addEventListener('click', () => {
+    playTone({ freq: 740, type: 'square', gain: 0.01, dur: 0.04 });
+    setTimeout(() => playTone({ freq: 540, type: 'square', gain: 0.008, dur: 0.04 }), 45);
+  });
+}
