@@ -150,11 +150,31 @@
       }
     };
 
+    /* ── No-cut zones (face + neck) — normalized 0–1 coords ─ */
+    /*    Tuned against the 1173×896 liberty_icon.png          */
+    const NO_CUT_ZONES = [
+      { cx: 0.435, cy: 0.600, rx: 0.145, ry: 0.230 }, /* face   */
+      { cx: 0.440, cy: 0.840, rx: 0.110, ry: 0.110 }, /* neck   */
+    ];
+
+    const isProtected = (cx, cy) => {
+      const nx = cx / canvas.width;
+      const ny = cy / canvas.height;
+      return NO_CUT_ZONES.some(z => {
+        const dx = (nx - z.cx) / z.rx;
+        const dy = (ny - z.cy) / z.ry;
+        return dx * dx + dy * dy <= 1;
+      });
+    };
+
     /* ── Cut action ───────────────────────────────────────── */
     const cut = (clientX, clientY) => {
       const rect  = canvas.getBoundingClientRect();
       const cx    = (clientX - rect.left) * (canvas.width  / rect.width);
       const cy    = (clientY - rect.top)  * (canvas.height / rect.height);
+
+      /* Block erasing on the face / neck */
+      if (isProtected(cx, cy)) return;
 
       /* Skip if barely moved (avoid re-counting still pixels) */
       if (lastCutPos) {
