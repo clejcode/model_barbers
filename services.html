@@ -3,15 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services &amp; Pricing | Model Barbers Williamsburg</title>
-  <meta name="description" content="Haircuts, fades, shape-ups, beard trims, and straight razor shaves. Starting at $15. Cash only. Walk-ins welcome at 452 Union Ave, Williamsburg." />
+  <!--
+    Planned canonical host: https://modelbarbers.com
+    Do not launch until this domain is attached to the site, or update the host in:
+    index.html, about.html, services.html, find-us.html, robots.txt, sitemap.xml, llms.txt, vercel.json, HOSTING.md
+  -->
+  <title>Haircuts, Beard Trims &amp; Shaves in Williamsburg | Model Barbers</title>
+  <meta name="description" content="Men's haircuts and fades $30, shape-ups and beard trims $15, straight razor shaves $30 at Model Barbers in Williamsburg. Cash only. Walk-ins welcome." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#0E0C0A" />
+  <link rel="canonical" href="https://modelbarbers.com/services" />
+  <link rel="alternate" type="text/plain" href="llms.txt" title="Plain-language summary of Model Barbers" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Model Barbers" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Haircuts, Beard Trims &amp; Shaves in Williamsburg | Model Barbers" />
+  <meta property="og:description" content="Men's haircuts and fades $30, shape-ups and beard trims $15, straight razor shaves $30. Cash only. Walk-ins welcome at 497 Union Ave, Williamsburg." />
+  <meta property="og:url" content="https://modelbarbers.com/services" />
+  <meta property="og:image" content="https://modelbarbers.com/storefront.jpg" />
+  <meta property="og:image:alt" content="Model Barbers storefront on Union Avenue in Williamsburg, Brooklyn" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="782" />
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Haircuts, Beard Trims &amp; Shaves in Williamsburg | Model Barbers" />
+  <meta name="twitter:description" content="Men's haircuts and fades $30, shape-ups and beard trims $15, straight razor shaves $30. Cash only. Walk-ins welcome at 497 Union Ave, Williamsburg." />
+  <meta name="twitter:image" content="https://modelbarbers.com/storefront.jpg" />
+  <meta name="twitter:image:alt" content="Model Barbers storefront on Union Avenue in Williamsburg, Brooklyn" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./liberty_favicon.png" type="image/png" />
+  <link rel="icon" href="liberty_favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://modelbarbers.com/#website",
+        "url": "https://modelbarbers.com/",
+        "name": "Model Barbers",
+        "description": "Williamsburg's neighborhood barbershop. Walk-ins only. Cash only.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://modelbarbers.com/#barbershop" }
+      },
+      {
+        "@type": ["HairSalon", "LocalBusiness"],
+        "@id": "https://modelbarbers.com/#barbershop",
+        "name": "Model Barbers",
+        "alternateName": "Williamsburg's Neighborhood Barbershop",
+        "slogan": "Leave a brand new man.",
+        "description": "Walk-in neighborhood barbershop on Union Avenue in Williamsburg, Brooklyn. Haircuts by Roman, Jack, and Alik. Cash only.",
+        "url": "https://modelbarbers.com/",
+        "telephone": "+17183879487",
+        "image": "https://modelbarbers.com/storefront.jpg",
+        "priceRange": "$",
+        "paymentAccepted": "Cash",
+        "currenciesAccepted": "USD",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "497 Union Ave",
+          "addressLocality": "Brooklyn",
+          "addressRegion": "NY",
+          "postalCode": "11211",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.715536,
+          "longitude": -73.952062
+        },
+        "hasMap": "https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Williamsburg, Brooklyn, New York"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "employee": [
+          { "@type": "Person", "name": "Roman", "jobTitle": "Barber" },
+          { "@type": "Person", "name": "Jack", "jobTitle": "Barber" },
+          { "@type": "Person", "name": "Alik", "jobTitle": "Barber" }
+        ],
+        "hasOfferCatalog": { "@id": "https://modelbarbers.com/services#catalog" }
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://modelbarbers.com/services#catalog",
+        "name": "Model Barbers services and prices",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Men's Haircut",
+            "description": "Classic cut to any style or length. Includes wash if needed.",
+            "price": "30",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#mens-haircut"
+          },
+          {
+            "@type": "Offer",
+            "name": "Fade",
+            "description": "Skin fade, taper, or high-and-tight — your call.",
+            "price": "30",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#fade"
+          },
+          {
+            "@type": "Offer",
+            "name": "Shape-Up",
+            "description": "Hairline, edges, and temple definition. Quick and precise.",
+            "price": "15",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#shape-up"
+          },
+          {
+            "@type": "Offer",
+            "name": "Head Shave",
+            "description": "Clean, smooth, and complete. Finished with a hot towel.",
+            "price": "25",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#head-shave"
+          },
+          {
+            "@type": "Offer",
+            "name": "Beard Trim",
+            "description": "Shaped, lined, and cleaned up.",
+            "price": "15",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#beard-trim"
+          },
+          {
+            "@type": "Offer",
+            "name": "Straight Razor Shave",
+            "description": "Traditional straight razor. The closest shave you'll get.",
+            "price": "30",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#straight-razor-shave"
+          },
+          {
+            "@type": "Offer",
+            "name": "Hot Towel Shave",
+            "description": "Hot towel prep, straight razor finish. Takes its time on purpose.",
+            "price": "30",
+            "priceCurrency": "USD",
+            "url": "https://modelbarbers.com/services#hot-towel-shave"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://modelbarbers.com/services#webpage",
+        "url": "https://modelbarbers.com/services",
+        "name": "Haircuts, Beard Trims & Shaves in Williamsburg | Model Barbers",
+        "description": "Men's haircuts and fades $30, shape-ups and beard trims $15, straight razor shaves $30 at Model Barbers in Williamsburg. Cash only. Walk-ins welcome.",
+        "isPartOf": { "@id": "https://modelbarbers.com/#website" },
+        "about": { "@id": "https://modelbarbers.com/#barbershop" },
+        "primaryImageOfPage": "https://modelbarbers.com/storefront.jpg",
+        "inLanguage": "en",
+        "breadcrumb": { "@id": "https://modelbarbers.com/services#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://modelbarbers.com/services#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://modelbarbers.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://modelbarbers.com/services"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -22,7 +213,7 @@
     </div>
     <div class="container nav-wrap">
       <a href="index.html" class="logo" aria-label="Model Barbers — home">
-        <img src="./scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
+        <img src="scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
         Model Barbers
       </a>
       <nav aria-label="Primary navigation">
@@ -33,7 +224,7 @@
           <li><a href="find-us.html">Find Us</a></li>
         </ul>
       </nav>
-      <a class="btn btn-primary btn-sm nav-cta" href="tel:+17183879487">Call to Book</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="tel:+17183879487">Call us</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
         <span class="nav-toggle-icon" aria-hidden="true"></span>
       </button>
@@ -54,9 +245,14 @@
 
     <div class="page-intro reveal visible">
       <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Services</span>
+        </nav>
         <p class="section-label">What we offer</p>
         <h1>Services &amp;<br>Pricing</h1>
-        <p class="lead">Straight prices. No hidden fees. Cash only — ATM right next door.</p>
+        <p class="lead">Straight prices. No hidden fees. Cash only — ATM right next door. Walk-ins at 497 Union Ave, Williamsburg.</p>
       </div>
     </div>
 
@@ -64,35 +260,35 @@
 
       <!-- ── Cuts ────────────────────────────────────────────── -->
       <div class="services-category reveal">
-        <p class="category-label">Cuts</p>
+        <h2 class="category-label" id="cuts">Cuts</h2>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="mens-haircut">
           <div class="service-info">
-            <p class="name">Men's Haircut</p>
+            <h3 class="name">Men's Haircut</h3>
             <p class="desc">Classic cut to any style or length. Includes wash if needed.</p>
           </div>
           <p class="service-price-col">$30</p>
         </div>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="fade">
           <div class="service-info">
-            <p class="name">Fade</p>
+            <h3 class="name">Fade</h3>
             <p class="desc">Skin fade, taper, or high-and-tight — your call.</p>
           </div>
           <p class="service-price-col">$30</p>
         </div>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="shape-up">
           <div class="service-info">
-            <p class="name">Shape-Up</p>
+            <h3 class="name">Shape-Up</h3>
             <p class="desc">Hairline, edges, and temple definition. Quick and precise.</p>
           </div>
           <p class="service-price-col">$15</p>
         </div>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="head-shave">
           <div class="service-info">
-            <p class="name">Head Shave</p>
+            <h3 class="name">Head Shave</h3>
             <p class="desc">Clean, smooth, and complete. Finished with a hot towel.</p>
           </div>
           <p class="service-price-col">$25</p>
@@ -101,27 +297,27 @@
 
       <!-- ── Shaves & Beard ──────────────────────────────────── -->
       <div class="services-category reveal">
-        <p class="category-label">Shaves &amp; Beard</p>
+        <h2 class="category-label" id="shaves-and-beard">Shaves &amp; Beard</h2>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="beard-trim">
           <div class="service-info">
-            <p class="name">Beard Trim</p>
+            <h3 class="name">Beard Trim</h3>
             <p class="desc">Shaped, lined, and cleaned up.</p>
           </div>
           <p class="service-price-col">$15</p>
         </div>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="straight-razor-shave">
           <div class="service-info">
-            <p class="name">Straight Razor Shave</p>
+            <h3 class="name">Straight Razor Shave</h3>
             <p class="desc">Traditional straight razor. The closest shave you'll get.</p>
           </div>
           <p class="service-price-col">$30</p>
         </div>
 
-        <div class="service-row-full scroll-item">
+        <div class="service-row-full scroll-item" id="hot-towel-shave">
           <div class="service-info">
-            <p class="name">Hot Towel Shave</p>
+            <h3 class="name">Hot Towel Shave</h3>
             <p class="desc">Hot towel prep, straight razor finish. Takes its time on purpose.</p>
           </div>
           <p class="service-price-col">$30</p>
@@ -130,7 +326,7 @@
 
       <!-- ── Footer note ─────────────────────────────────────── -->
       <div class="services-footer reveal">
-        <p>Cash only. No appointment needed — walk right in. Questions? <a href="tel:+17183879487">(718) 387-9487</a>.</p>
+        <p>Cash only. No appointment needed — walk right in. Questions? <a href="tel:+17183879487">(718) 387-9487</a>. <a href="find-us.html">Directions and hours</a>.</p>
         <p style="margin-top: .5em; color: var(--text-faint); font-size: var(--text-xs);">Prices confirmed as of 2025. Call to verify.</p>
       </div>
 
@@ -142,28 +338,28 @@
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
         <address>
-          452 Union Ave #3427<br>
-          Brooklyn, NY 11211<br>
+          <a href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">497 Union Ave<br>Brooklyn, NY 11211</a><br>
           <a href="tel:+17183879487">(718) 387-9487</a>
         </address>
         <p class="footer-tagline">"Leave a brand new man."</p>
       </div>
       <div class="footer-col">
-        <h4>Navigate</h4>
+        <p class="footer-heading">Navigate</p>
         <ul class="footer-nav-list" role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Hours</h4>
+        <p class="footer-heading">Hours</p>
         <table class="hours-table">
           <tbody>
-            <tr><th>Mon–Fri</th><td>9 AM – 7 PM</td></tr>
-            <tr><th>Saturday</th><td>9 AM – 6 PM</td></tr>
-            <tr class="closed"><th>Sunday</th><td>Closed</td></tr>
+            <tr><th scope="row">Mon–Fri</th><td>9 AM – 7 PM</td></tr>
+            <tr><th scope="row">Saturday</th><td>9 AM – 6 PM</td></tr>
+            <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
           </tbody>
         </table>
       </div>
