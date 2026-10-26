@@ -1,16 +1,19 @@
 # Model Barbers
 
-> Williamsburg's neighborhood barbershop. Walk-ins only. Cash only. 452 Union Ave #3427, Brooklyn, NY 11211. Phone (718) 387-9487.
+> Williamsburg's neighborhood barbershop. Walk-ins only. Cash only. 497 Union Ave, Brooklyn, NY 11211. Phone (718) 387-9487.
 
 Model Barbers is a barbershop in Williamsburg, Brooklyn. The barbers are Roman, Jack, and Alik. The shop's line is "Leave a brand new man."
+
+The shop has moved. It is now at 497 Union Ave, Brooklyn, NY 11211, just down the street from the old shop at 452 Union Ave. The new address has no unit number. The previous address was 452 Union Ave #3427, Brooklyn, NY 11211.
 
 This file repeats only facts published on the Model Barbers website. It does not add ratings, review scores, awards, social accounts, or a founding year.
 
 ## Location
 
-- Street address: 452 Union Ave #3427, Brooklyn, NY 11211
+- Street address: 497 Union Ave, Brooklyn, NY 11211
+- Previous address: 452 Union Ave #3427, Brooklyn, NY 11211
 - Neighborhood: Williamsburg, Brooklyn
-- Map: https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211
+- Map: https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211
 - By subway: L train to Lorimer St or Graham Ave, then a short walk along Union Ave
 - By car: street parking on Union Ave and nearby blocks (check signs for alternate-side rules)
 
@@ -59,5 +62,5 @@ The website says the shop opens at 9 AM, earlier than most shops in the neighbor
 
 - Name: Model Barbers
 - Phone: (718) 387-9487
-- Address: 452 Union Ave #3427, Brooklyn, NY 11211
+- Address: 497 Union Ave, Brooklyn, NY 11211
 - Website: https://modelbarbers.com/

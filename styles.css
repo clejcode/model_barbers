@@ -124,6 +124,29 @@ p + p { margin-top: 1em; }
 /* Compress on scroll */
 .site-header.slim .nav-wrap { height: var(--header-slim); }
 
+/* Move notice — slim bar under the header */
+.moved-notice {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-vis);
+}
+.moved-notice .container { padding-block: var(--sp-2); }
+.moved-notice p {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 68ch;
+}
+.moved-notice strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+.moved-notice a {
+  color: var(--text-primary);
+  text-underline-offset: 3px;
+}
+.moved-notice a:hover { color: #fff; }
+
 /* Logo */
 .logo {
   display: flex; align-items: center; gap: var(--sp-1);
