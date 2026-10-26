@@ -3,7 +3,8 @@
    Imports tokens.css. Nothing hardcoded here.
    ═══════════════════════════════════════════════════════════ */
 
-@import url('tokens.css');
+/* tokens.css is linked before this file on every page.
+   It is not @imported, so the browser can download both stylesheets at once. */
 
 /* ── Reset ────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,6 +13,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + var(--stripe-h) + 1rem);
   font-size: 16px;
+  color-scheme: dark;
 }
 
 body {
@@ -281,6 +283,18 @@ p + p { margin-top: 1em; }
   color: var(--text-secondary); max-width: 50ch;
 }
 
+/* Breadcrumb — same mono voice as the section labels */
+.breadcrumb {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .4rem;
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+.breadcrumb a:hover { color: var(--text-primary); }
+.breadcrumb [aria-current="page"] { color: var(--text-secondary); }
+
 /* ════════════════════════════════════════════════════════════
    HERO (homepage)
    ════════════════════════════════════════════════════════════ */
@@ -304,6 +318,14 @@ p + p { margin-top: 1em; }
   text-transform: uppercase; color: var(--text-secondary);
   margin-bottom: var(--sp-3); font-family: var(--font-mono);
 }
+.hero-eyebrow a { color: inherit; text-decoration: none; }
+.hero-eyebrow a:hover { color: var(--text-primary); }
+
+.hero-sub a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.hero-sub a:hover { color: var(--text-primary); }
 
 .hero-headline {
   /* inherits h1 styles */
@@ -346,6 +368,12 @@ p + p { margin-top: 1em; }
   overflow: hidden;
   aspect-ratio: 4/3;
   border-left: 2px solid var(--accent);
+}
+.hero-img-wrap picture,
+.team-photo-wrap picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .hero-img-wrap img {
   width: 100%; height: 100%; object-fit: cover;
@@ -449,6 +477,8 @@ p + p { margin-top: 1em; }
 .service-name {
   font-size: var(--text-base); color: var(--text-primary); flex-shrink: 0;
 }
+.service-name a { color: inherit; text-decoration: none; }
+.service-name a:hover { color: var(--gold-light); }
 .service-desc {
   font-size: var(--text-sm); color: var(--text-secondary);
   font-weight: 300; margin-left: var(--sp-2);
@@ -487,15 +517,17 @@ p + p { margin-top: 1em; }
   color: var(--accent); letter-spacing: 0.08em;
 }
 .visit-q {
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
   font-size: var(--text-xl); color: var(--text-primary);
-  line-height: 1.2;
+  letter-spacing: 0; line-height: 1.2; margin: 0;
 }
 .visit-a {
   font-size: var(--text-base); color: var(--text-secondary);
   font-weight: 300; line-height: 1.6;
 }
 .visit-a strong { color: var(--text-primary); font-weight: 500; }
+.visit-a a { color: var(--text-primary); text-underline-offset: 3px; }
+.visit-a a:hover { color: #fff; }
 
 /* ════════════════════════════════════════════════════════════
    MEET THE BARBERS
@@ -516,7 +548,10 @@ p + p { margin-top: 1em; }
   font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-style: italic; letter-spacing: -0.02em;
   color: var(--text-primary); line-height: 1;
+  font-weight: 400;
 }
+.barber-name a { color: inherit; text-decoration: none; }
+.barber-name a:hover { color: #fff; }
 .barber-tag {
   font-size: var(--text-sm); font-weight: 300;
   color: var(--text-secondary); line-height: 1.55;
@@ -571,7 +606,8 @@ p + p { margin-top: 1em; }
 .category-label {
   font-size: var(--text-xs); letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--text-secondary);
-  font-family: var(--font-mono); margin-bottom: var(--sp-4);
+  font-family: var(--font-mono); font-weight: 400;
+  line-height: 1.4; margin-bottom: var(--sp-4);
   padding-bottom: var(--sp-2);
   border-bottom: 1px solid var(--border-vis);
 }
@@ -586,8 +622,10 @@ p + p { margin-top: 1em; }
 .service-row-full:first-of-type { border-top: 1px solid var(--border); }
 
 .service-info .name {
+  font-family: var(--font-body);
   font-size: var(--text-base); color: var(--text-primary);
-  font-weight: 400;
+  font-weight: 400; letter-spacing: 0; line-height: 1.4;
+  margin: 0;
 }
 .service-info .desc {
   font-size: var(--text-sm); color: var(--text-secondary);
@@ -653,9 +691,9 @@ p + p { margin-top: 1em; }
 .barber-profile { padding: var(--sp-6) 0; border-top: 1px solid var(--border-vis); }
 .barber-profile:first-child { margin-top: var(--sp-4); }
 .bp-name {
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
   font-size: var(--text-3xl); color: var(--text-primary);
-  margin-bottom: var(--sp-2); line-height: 1;
+  letter-spacing: 0; margin-bottom: var(--sp-2); line-height: 1;
 }
 .bp-body {
   font-size: var(--text-base); font-weight: 300;
@@ -671,6 +709,13 @@ p + p { margin-top: 1em; }
   font-size: var(--text-lg); font-weight: 300;
   color: var(--text-secondary); line-height: 1.7; max-width: 52ch;
 }
+.about-prose a,
+.honest-box a {
+  color: var(--text-primary);
+  text-underline-offset: 3px;
+}
+.about-prose a:hover,
+.honest-box a:hover { color: #fff; }
 
 .pull-quote {
   padding: var(--sp-8) 0;
@@ -711,9 +756,10 @@ p + p { margin-top: 1em; }
   display: grid; gap: var(--sp-8);
 }
 
-.contact-block h3 {
+.contact-block h2 {
   font-family: var(--font-body); font-weight: 600;
   font-size: var(--text-xs); letter-spacing: 0.12em;
+  line-height: 1.4;
   text-transform: uppercase; color: var(--text-secondary);
   margin-bottom: var(--sp-3);
   border-bottom: 1px solid var(--border-vis);
@@ -742,6 +788,8 @@ p + p { margin-top: 1em; }
   font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7;
 }
 .getting-here p + p { margin-top: .5em; }
+.getting-here a { color: var(--text-primary); text-underline-offset: 3px; }
+.getting-here a:hover { color: #fff; }
 
 /* ════════════════════════════════════════════════════════════
    FOOTER
@@ -773,7 +821,7 @@ p + p { margin-top: 1em; }
   font-family: var(--font-display);
 }
 
-.footer-col h4 {
+.footer-heading {
   font-family: var(--font-body); font-weight: 600;
   font-size: var(--text-xs); letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--text-secondary);

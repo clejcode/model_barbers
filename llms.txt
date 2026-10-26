@@ -1,0 +1,63 @@
+# Model Barbers
+
+> Williamsburg's neighborhood barbershop. Walk-ins only. Cash only. 452 Union Ave #3427, Brooklyn, NY 11211. Phone (718) 387-9487.
+
+Model Barbers is a barbershop in Williamsburg, Brooklyn. The barbers are Roman, Jack, and Alik. The shop's line is "Leave a brand new man."
+
+This file repeats only facts published on the Model Barbers website. It does not add ratings, review scores, awards, social accounts, or a founding year.
+
+## Location
+
+- Street address: 452 Union Ave #3427, Brooklyn, NY 11211
+- Neighborhood: Williamsburg, Brooklyn
+- Map: https://maps.google.com/?q=452+Union+Ave,+Brooklyn,+NY+11211
+- By subway: L train to Lorimer St or Graham Ave, then a short walk along Union Ave
+- By car: street parking on Union Ave and nearby blocks (check signs for alternate-side rules)
+
+The homepage caption and the scrolling line on the home page say "Est. 1920s."
+
+## Hours
+
+- Monday–Friday: 9:00 AM – 7:00 PM
+- Saturday: 9:00 AM – 6:00 PM
+- Sunday: Closed
+
+The website says the shop opens at 9 AM, earlier than most shops in the neighborhood.
+
+## How a visit works
+
+- Walk-ins only. No appointment needed. The shop does not take appointments online and does not have an app.
+- If you are on a tight schedule, call ahead and the shop will tell you the current wait.
+- Most haircuts take 15–20 minutes.
+- Payment: cash only. There is an ATM next door.
+- Prices on the website were confirmed as of 2025. Call to verify.
+
+## Services and prices
+
+- Men's haircut: $30. Classic cut to any style or length. Includes a wash if needed.
+- Fade: $30. Skin fade, taper, or high-and-tight.
+- Shape-up: $15. Hairline, edges, and temple definition.
+- Head shave: $25. Finished with a hot towel.
+- Beard trim: $15. Shaped, lined, and cleaned up.
+- Straight razor shave: $30. Traditional straight razor.
+- Hot towel shave: $30. Hot towel prep, straight razor finish.
+
+## Barbers
+
+- Roman: the site says he takes his time, and that some clients fly in from LA to sit in his chair.
+- Jack: the site says regulars have been coming for years, and that he makes you feel welcome when you walk in.
+- Alik: the site describes him as sharp, consistent, and fast, often about 20 minutes.
+
+## Pages
+
+- [Home](https://modelbarbers.com/): intro, featured services, visit questions, and the barbers
+- [Services and prices](https://modelbarbers.com/services): full service list
+- [About](https://modelbarbers.com/about): the shop and Roman, Jack, and Alik
+- [Find us](https://modelbarbers.com/find-us): hours, phone, address, map, and how to get there
+
+## Contact
+
+- Name: Model Barbers
+- Phone: (718) 387-9487
+- Address: 452 Union Ave #3427, Brooklyn, NY 11211
+- Website: https://modelbarbers.com/
