@@ -1,0 +1,29 @@
+# Clean URLs for Cloudflare Pages. Canonicals and sitemap.xml use the
+# extensionless paths with no trailing slash:
+#   /   /about   /services   /find-us
+#
+# Pages already redirects /about.html and /about/ toward /about. These
+# 301s make that permanent. The destination is the URL Pages serves with
+# status 200, so the rule does not loop. Do not add the reverse
+# (/about → /about.html).
+#
+# /index.html is special. Pages would send it to /index, which is a
+# second copy of the homepage. Send every index form to /.
+
+/index.html   /          301
+/index        /          301
+/index/       /          301
+
+/about.html   /about     301
+/about/       /about     301
+
+/services.html   /services   301
+/services/       /services   301
+
+/find-us.html   /find-us   301
+/find-us/       /find-us   301
+
+# www.modelbarbers.com → https://modelbarbers.com is not listed here.
+# Pages ignores domain-level rules in this file. Create that 301 as a
+# Cloudflare Bulk Redirect after DNS is on Cloudflare. See HOSTING.md.
+# vercel.json still does this redirect for the current Vercel deploy.
