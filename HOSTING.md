@@ -135,4 +135,4 @@ Before adding records, delete Porkbun’s parking records (the ones pointed at `
 npx wrangler pages dev . --port 8788
 ```
 
-Then open `http://127.0.0.1:8788/about.html`. It should land on `/about`.
+Then open `http://127.0.0.1:8788/about.html`. It should land on `/about`. Wrangler writes a local `.wrangler/` folder. That folder is listed in `.gitignore`.
