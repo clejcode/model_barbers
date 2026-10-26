@@ -31,7 +31,7 @@ Do not add a rule that sends `/about` back to `/about.html`. That fights the rul
 
 Links inside the pages still end in `.html`. That keeps `python3 -m http.server` working. Both Vercel (`cleanUrls`) and Cloudflare redirect those links to the canonical path.
 
-`404.html` is in the root so Pages does not treat the site as a single-page app. Without that file, an unknown address would return the homepage with status 200.
+`404.html` is in the root so Pages does not treat the site as a single-page app. Without that file, an unknown address would return the homepage with status 200. `/404` and `/404/` redirect home. `/404.html` is left alone, because Pages reads that file when it builds the not-found response.
 
 ## www to the apex
 
@@ -108,6 +108,7 @@ Before adding records, delete Porkbun’s parking records (the ones pointed at `
 - `/about.html` and `/about/` → `/about`
 - `/services.html` and `/services/` → `/services`
 - `/find-us.html` and `/find-us/` → `/find-us`
+- `/404` and `/404/` → `/` (the not-found template stays at `404.html`, which Pages reads for missing URLs)
 
 `_headers`:
 

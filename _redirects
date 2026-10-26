@@ -23,6 +23,13 @@
 /find-us.html   /find-us   301
 /find-us/       /find-us   301
 
+# Pages would also publish 404.html at /404 with status 200. Send that
+# address home. Do not redirect /404.html itself: Pages reads that file
+# to answer missing URLs.
+
+/404          /          301
+/404/         /          301
+
 # www.modelbarbers.com → https://modelbarbers.com is not listed here.
 # Pages ignores domain-level rules in this file. Create that 301 as a
 # Cloudflare Bulk Redirect after DNS is on Cloudflare. See HOSTING.md.
