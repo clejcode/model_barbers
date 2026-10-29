@@ -133,23 +133,24 @@ if (floatingCall && openingBlock && 'IntersectionObserver' in window) {
 const stripeTrack = document.querySelector('.top-stripe-track');
 if (stripeTrack && !reduceMotion) {
   const TILE_W = 40;   // matches one gradient repeat (4 × 10px)
-  const DECAY  = 0.88;
 
   let stripePos = 0;
   let stripeVel = 0;
-  let lastSY    = window.scrollY;
+  let lastSY = window.scrollY;
 
-  window.addEventListener('scroll', () => {
-    const dy  = window.scrollY - lastSY;
-    stripeVel = dy * 0.55;
-    lastSY    = window.scrollY;
-  }, { passive: true });
-
+  /* One sample per frame. Velocity eases toward that frame's scroll
+     delta, then decays, so a burst of scroll events cannot step the stripe. */
   const tickStripe = () => {
-    stripeVel *= DECAY;
+    const y = window.scrollY;
+    const dy = y - lastSY;
+    lastSY = y;
+    const goal = Math.max(-14, Math.min(14, dy * 0.62));
+    stripeVel += (goal - stripeVel) * 0.22;
+    stripeVel *= 0.9;
+    if (Math.abs(stripeVel) < 0.02) stripeVel = 0;
     stripePos += stripeVel;
-    stripePos  = ((stripePos % TILE_W) + TILE_W) % TILE_W;
-    stripeTrack.style.transform = `translateX(${stripePos.toFixed(2)}px)`;
+    stripePos = ((stripePos % TILE_W) + TILE_W) % TILE_W;
+    stripeTrack.style.transform = `translate3d(${stripePos}px,0,0)`;
     requestAnimationFrame(tickStripe);
   };
   requestAnimationFrame(tickStripe);
