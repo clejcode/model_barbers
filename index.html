@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -190,30 +190,6 @@
           },
           {
             "@type": "Question",
-            "name": "How do I pay?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cash only. There's an ATM right next door if you need it."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What are your hours?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Monday–Friday 9 AM–7 PM, Saturday 9 AM–6 PM. Closed Sunday. We open earlier than most shops in the neighborhood."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is Model Barbers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "497 Union Ave, Brooklyn, NY 11211, in Williamsburg. Take the L train to Lorimer St or Graham Ave — the shop is a short walk from both, on Union Ave. Directions are on the Find Us page."
-            }
-          },
-          {
-            "@type": "Question",
             "name": "How much is a haircut?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -274,7 +250,12 @@
 
     <aside class="moved-notice" aria-label="We've moved">
       <div class="container">
-        <p><strong>We've moved!</strong> Now at <a href="find-us.html">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</p>
+        <p class="moved-line">
+          <span class="moved-rule" aria-hidden="true"></span>
+          <span class="moved-kicker">We've moved</span>
+          <span class="moved-sep" aria-hidden="true">·</span>
+          <span class="moved-place"><a href="find-us.html">497 Union Ave</a><span class="moved-more">, down the street from 452</span></span>
+        </p>
       </div>
     </aside>
 
@@ -285,13 +266,14 @@
         <div class="hero-content stagger-group">
           <p class="hero-eyebrow"><a href="find-us.html">497 Union Ave, Williamsburg, Brooklyn</a></p>
 
-          <h1 class="hero-headline" id="hero-headline">
-            Leave a<br><em>brand new</em><br>man.
+          <h1 class="hero-headline mask-reveal" id="hero-headline">
+            <span class="mask-line"><span class="hero-leadin">Leave a</span></span>
+            <span class="mask-line hero-focus"><span><em>brand new man.</em></span></span>
           </h1>
 
-          <div class="hero-availability">
-            <span class="availability-dot" aria-hidden="true"></span>
-            <span class="availability-text">Walk-ins welcome &nbsp;·&nbsp; Open 9&thinsp;AM</span>
+          <div class="hero-availability" data-shop-status>
+            <span class="availability-dot" data-shop-dot aria-hidden="true"></span>
+            <span class="availability-text" data-shop-status-text>Walk-ins welcome</span>
           </div>
 
           <p class="hero-sub">Haircuts by <a href="about.html">Roman, Jack, and Alik</a>. $30. Cash only. Walk-ins only — call ahead if you want the current wait.</p>
@@ -303,7 +285,7 @@
         </div>
 
         <div class="hero-media-col">
-          <div class="hero-img-wrap">
+          <div class="hero-img-wrap photo-frame" data-frame="hero">
             <picture>
               <source
                 type="image/webp"
@@ -324,10 +306,31 @@
         </div>
 
       </div>
+
+      <div class="facts-strip">
+        <ul class="container facts">
+          <li class="fact">
+            <span class="fact-kicker">Hours</span>
+            <span class="fact-value">Mon–Fri 9 AM–7 PM · Sat 9 AM–6 PM</span>
+          </li>
+          <li class="fact">
+            <span class="fact-kicker">Visit</span>
+            <span class="fact-value">Walk-ins only</span>
+          </li>
+          <li class="fact">
+            <span class="fact-kicker">Pay</span>
+            <span class="fact-value">Cash only</span>
+          </li>
+          <li class="fact">
+            <span class="fact-kicker">Shop</span>
+            <a class="fact-value" href="find-us.html">497 Union Ave</a>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <!-- ── SOCIAL PROOF ────────────────────────────────────────── -->
-    <section class="proof-strip" aria-label="Customer reviews">
+    <section class="proof-strip paper" aria-label="Customer reviews">
       <div class="container proof-grid">
         <div class="proof-item">
           <p class="proof-quote">"Worth the trek from LA."</p>
@@ -347,14 +350,15 @@
     <!-- ── MARQUEE ─────────────────────────────────────────────── -->
     <div class="marquee-strip" aria-hidden="true">
       <div class="marquee-track" id="marquee-track">
-        <span class="marquee-content">Leave a brand new man &nbsp;·&nbsp; Est. 1920s &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alik &nbsp;·&nbsp; Open 9&thinsp;AM &nbsp;·&nbsp; 497 Union Ave &nbsp;·&nbsp;&nbsp;</span>
-        <span class="marquee-content" aria-hidden="true">Leave a brand new man &nbsp;·&nbsp; Est. 1920s &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alik &nbsp;·&nbsp; Open 9&thinsp;AM &nbsp;·&nbsp; 497 Union Ave &nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-content">Leave a brand new man &nbsp;·&nbsp; Est. 1920s &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alik &nbsp;·&nbsp; Opens 9&thinsp;AM &nbsp;·&nbsp; 497 Union Ave &nbsp;·&nbsp;&nbsp;</span>
+        <span class="marquee-content" aria-hidden="true">Leave a brand new man &nbsp;·&nbsp; Est. 1920s &nbsp;·&nbsp; Williamsburg, Brooklyn &nbsp;·&nbsp; Cash Only &nbsp;·&nbsp; Walk-Ins Welcome &nbsp;·&nbsp; Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alik &nbsp;·&nbsp; Opens 9&thinsp;AM &nbsp;·&nbsp; 497 Union Ave &nbsp;·&nbsp;&nbsp;</span>
       </div>
     </div>
 
     <!-- ── SERVICES PREVIEW ────────────────────────────────────── -->
-    <section class="section reveal" id="services" aria-labelledby="services-heading">
+    <section class="section" id="services" aria-labelledby="services-heading">
       <div class="container">
+        <div class="price-sheet draw-rows">
         <div class="section-header">
           <div>
             <p class="section-label">What we do</p>
@@ -389,6 +393,7 @@
             <span class="service-price" role="cell">$30</span>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
@@ -402,96 +407,45 @@
           </div>
         </div>
 
-        <div class="visit-grid">
-          <div class="visit-item scroll-item">
-            <span class="visit-num">01</span>
-            <h3 class="visit-q">Did Model Barbers move?</h3>
-            <p class="visit-a">Yes. Model Barbers is now at <strong>497 Union Ave, Brooklyn, NY 11211</strong>, just down the street from the old spot at 452 Union Ave.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">02</span>
-            <h3 class="visit-q">Do I need an appointment?</h3>
-            <p class="visit-a">No. <strong>Walk-ins are always welcome</strong>, and you do not need an appointment. Model Barbers does not take appointments online. If you're on a tight schedule, call <a href="tel:+17183879487">(718) 387-9487</a> and we'll tell you the current wait.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">03</span>
-            <h3 class="visit-q">How long does a haircut take?</h3>
-            <p class="visit-a">Most cuts are done in <strong>15–20 minutes</strong>. No unnecessary waiting around.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">04</span>
-            <h3 class="visit-q">How do I pay?</h3>
-            <p class="visit-a"><strong>Cash only.</strong> There's an ATM right next door if you need it.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">05</span>
-            <h3 class="visit-q">What are your hours?</h3>
-            <p class="visit-a"><strong>Monday–Friday 9 AM–7 PM, Saturday 9 AM–6 PM.</strong> Closed Sunday. We open earlier than most shops in the neighborhood.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">06</span>
-            <h3 class="visit-q">Where is Model Barbers?</h3>
-            <p class="visit-a"><strong>497 Union Ave, Brooklyn, NY 11211</strong>, in Williamsburg. Take the L train to Lorimer St or Graham Ave — the shop is a short walk from both, on Union Ave. Directions are on the <a href="find-us.html">Find Us page</a>.</p>
-          </div>
-          <div class="visit-item scroll-item">
-            <span class="visit-num">07</span>
-            <h3 class="visit-q">How much is a haircut?</h3>
-            <p class="visit-a">A men's haircut is <strong>$30</strong>, a shape-up is <strong>$15</strong>, a beard trim is <strong>$15</strong>, and a straight razor shave is <strong>$30</strong>. Fades, head shaves, and hot towel shaves are on the <a href="services.html">services page</a>. Cash only. Prices were confirmed as of 2025; call to verify.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="visit-layout">
+          <aside class="visit-panel">
+            <p class="section-label">Right now</p>
+            <p class="visit-status" data-shop-status>
+              <span class="availability-dot" data-shop-dot aria-hidden="true"></span>
+              <span data-shop-status-text>Walk-ins welcome</span>
+            </p>
+            <table class="hours-table">
+              <tbody>
+                <tr><th scope="row">Mon–Fri</th><td>9 AM – 7 PM</td></tr>
+                <tr><th scope="row">Saturday</th><td>9 AM – 6 PM</td></tr>
+                <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+              </tbody>
+            </table>
+            <a class="btn btn-primary" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
+            <p class="visit-aside-note">Cash only</p>
+          </aside>
 
-    <!-- ── TEAM PHOTO ──────────────────────────────────────────── -->
-    <div class="team-photo-section" data-reveal="clip">
-      <div class="team-photo-wrap">
-        <picture>
-          <source srcset="barbers-headshot.webp" type="image/webp" />
-          <img
-            src="barbers-headshot.jpg"
-            alt="Model Barbers on the ground floor of a brick building in Williamsburg, with the shop sign above the windows and a barber pole by the door"
-            width="1070" height="818"
-            loading="lazy" decoding="async"
-            class="parallax" data-parallax-speed="0.1"
-          />
-        </picture>
-        <div class="team-photo-overlay" aria-hidden="true"></div>
-        <p class="team-photo-caption" aria-hidden="true">Roman &nbsp;·&nbsp; Jack &nbsp;·&nbsp; Alik</p>
-      </div>
-    </div>
-
-    <!-- ── MEET THE BARBERS ────────────────────────────────────── -->
-    <section class="section reveal" id="team" aria-labelledby="team-heading">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="section-label">The team</p>
-            <h2 id="team-heading">Meet the barbers</h2>
-          </div>
-          <a href="about.html" class="section-link">Full story →</a>
-        </div>
-
-        <div class="barbers-grid">
-          <div class="barber-card scroll-item">
-            <div>
-              <span class="barber-rule" aria-hidden="true"></span>
-              <h3 class="barber-name"><a href="about.html#roman">Roman</a></h3>
+          <div class="visit-grid">
+            <div class="visit-item scroll-item">
+              <span class="visit-num">01</span>
+              <h3 class="visit-q">Did Model Barbers move?</h3>
+              <p class="visit-a">Yes. Model Barbers is now at <strong>497 Union Ave, Brooklyn, NY 11211</strong>, just down the street from the old spot at 452 Union Ave.</p>
             </div>
-            <p class="barber-tag">Clients come back from across the country for Roman's cuts. His reputation earns him the trip.</p>
-          </div>
-          <div class="barber-card scroll-item">
-            <div>
-              <span class="barber-rule" aria-hidden="true"></span>
-              <h3 class="barber-name"><a href="about.html#jack">Jack</a></h3>
+            <div class="visit-item scroll-item">
+              <span class="visit-num">02</span>
+              <h3 class="visit-q">Do I need an appointment?</h3>
+              <p class="visit-a">No. <strong>Walk-ins are always welcome</strong>, and you do not need an appointment. Model Barbers does not take appointments online. If you're on a tight schedule, call <a href="tel:+17183879487">(718) 387-9487</a> and we'll tell you the current wait.</p>
             </div>
-            <p class="barber-tag">Makes you feel welcome the second you walk in. Regulars have been coming to Jack for years.</p>
-          </div>
-          <div class="barber-card scroll-item">
-            <div>
-              <span class="barber-rule" aria-hidden="true"></span>
-              <h3 class="barber-name"><a href="about.html#alik">Alik</a></h3>
+            <div class="visit-item scroll-item">
+              <span class="visit-num">03</span>
+              <h3 class="visit-q">How long does a haircut take?</h3>
+              <p class="visit-a">Most cuts are done in <strong>15–20 minutes</strong>. No unnecessary waiting around.</p>
             </div>
-            <p class="barber-tag">Sharp, consistent, and fast. Alik's the reason walk-ins keep coming back as regulars.</p>
+            <div class="visit-item scroll-item">
+              <span class="visit-num">04</span>
+              <h3 class="visit-q">How much is a haircut?</h3>
+              <p class="visit-a">A men's haircut is <strong>$30</strong>, a shape-up is <strong>$15</strong>, a beard trim is <strong>$15</strong>, and a straight razor shave is <strong>$30</strong>. Fades, head shaves, and hot towel shaves are on the <a href="services.html">services page</a>. Cash only. Prices were confirmed as of 2025; call to verify.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -535,7 +489,7 @@
     </div>
 
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
+      <p class="footer-note">Cash only &nbsp;·&nbsp; Walk-ins welcome</p>
       <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
     </div>
   </footer>

@@ -14,12 +14,13 @@
   --text-xs:   0.75rem;    /* 12px — captions, labels      */
   --text-sm:   0.875rem;   /* 14px — meta, secondary       */
   --text-base: 1rem;       /* 16px — body                  */
+  --text-body: 1.0625rem;  /* 17px — reading copy          */
   --text-lg:   1.125rem;   /* 18px — lead copy             */
   --text-xl:   1.25rem;    /* 20px — subheadings           */
   --text-2xl:  1.5rem;     /* 24px                         */
   --text-3xl:  2rem;       /* 32px                         */
   --text-4xl:  2.75rem;    /* 44px — section headers       */
-  --text-hero: clamp(3rem, 8vw, 6rem);   /* fluid hero     */
+  --text-hero: clamp(2.6rem, 5.6vw, 4.5rem);   /* fluid hero */
 
   /* ── Colors — base dark theme ───────────────────────────── */
   --bg:             #0E0C0A;   /* page background            */
@@ -27,8 +28,8 @@
   --bg-inset:       #0A0908;   /* recessed areas             */
 
   --text-primary:   #E8DECA;   /* main text                  */
-  --text-secondary: #9A8E7C;   /* secondary / muted          */
-  --text-faint:     #52483F;   /* very muted                 */
+  --text-secondary: #A89884;   /* muted body — was #9A8E7C   */
+  --text-faint:     #8E8272;   /* recessive labels; ~#8A7E6E, still AA */
 
   --accent:         #B82030;   /* barber red — use sparingly */
   --accent-hi:      #D02438;   /* red on hover               */

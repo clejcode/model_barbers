@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -179,6 +179,17 @@
 
   <main id="main-content">
 
+    <aside class="moved-notice" aria-label="We've moved">
+      <div class="container">
+        <p class="moved-line">
+          <span class="moved-rule" aria-hidden="true"></span>
+          <span class="moved-kicker">We've moved</span>
+          <span class="moved-sep" aria-hidden="true">·</span>
+          <span class="moved-place"><a href="find-us.html">497 Union Ave</a><span class="moved-more">, down the street from 452</span></span>
+        </p>
+      </div>
+    </aside>
+
     <!-- ── Opening ────────────────────────────────────────────── -->
     <div class="about-intro reveal visible">
       <div class="container">
@@ -188,16 +199,21 @@
           <span aria-current="page">About</span>
         </nav>
         <p class="section-label">Who we are</p>
-        <h1>We've been on<br>Union Ave a<br>long time.<br><em>We plan to stay.</em></h1>
+        <h1 class="mask-reveal">
+          <span class="mask-line"><span>We've been on</span></span>
+          <span class="mask-line"><span>Union Ave a</span></span>
+          <span class="mask-line"><span>long time.</span></span>
+          <span class="mask-line"><span><em>We plan to stay.</em></span></span>
+        </h1>
       </div>
     </div>
 
     <!-- ── Story ──────────────────────────────────────────────── -->
-    <section class="section reveal" aria-labelledby="story-heading">
+    <section class="section about-story reveal" aria-labelledby="story-heading">
       <div class="container">
         <p class="section-label">The shop</p>
-        <h2 id="story-heading" style="margin-bottom: var(--sp-6); max-width: 18ch;">A neighborhood shop that earned its reputation the old way.</h2>
-        <div class="about-prose" style="max-width: var(--max-w-prose); display: grid; gap: 1em; font-size: var(--text-lg); font-weight: 300; color: var(--text-secondary); line-height: 1.7;">
+        <h2 id="story-heading">A neighborhood shop that earned its reputation the old way.</h2>
+        <div class="about-prose">
           <p>Model Barbers is Williamsburg's neighborhood barbershop at <a href="find-us.html">497 Union Ave, Brooklyn, NY 11211</a>. Roman, Jack, and Alik do the cutting. Walk-ins only. Cash only.</p>
           <p>Model Barbers has been on Union Ave for as long as most people in the neighborhood can remember. It started as a family business and it's stayed that way — run by people who take pride in the work, not the brand.</p>
           <p>Roman, Jack, and Alik haven't built a customer base. They've built a clientele. There's a difference. Regular clients don't come back just for the cut. They come back for the conversation, the consistency, and the fact that you walk out looking better than when you walked in — every single time.</p>
@@ -207,7 +223,7 @@
     </section>
 
     <!-- ── Pull Quote ─────────────────────────────────────────── -->
-    <div class="pull-quote reveal">
+    <div class="pull-quote paper reveal">
       <div class="container">
         <blockquote>"Worth the trek from LA."</blockquote>
         <cite>Google Review — Roman's client, returning after moving across the country</cite>
@@ -218,7 +234,7 @@
     <section class="section reveal" aria-labelledby="barbers-heading">
       <div class="container">
         <p class="section-label">The team</p>
-        <h2 id="barbers-heading" style="margin-bottom: var(--sp-8);">Roman, Jack &amp; Alik</h2>
+        <h2 id="barbers-heading" class="about-team-title">Roman, Jack &amp; Alik</h2>
 
         <div class="barber-profile scroll-item" id="roman">
           <h3 class="bp-name">Roman</h3>
@@ -280,7 +296,7 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
+      <p class="footer-note">Cash only &nbsp;·&nbsp; Walk-ins welcome</p>
       <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
     </div>
   </footer>

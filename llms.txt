@@ -32,7 +32,7 @@ The website says the shop opens at 9 AM, earlier than most shops in the neighbor
 - Walk-ins only. No appointment needed. The shop does not take appointments online and does not have an app.
 - If you are on a tight schedule, call ahead and the shop will tell you the current wait.
 - Most haircuts take 15–20 minutes.
-- Payment: cash only. There is an ATM next door.
+- Payment: cash only.
 - Prices on the website were confirmed as of 2025. Call to verify.
 
 ## Services and prices
@@ -53,7 +53,7 @@ The website says the shop opens at 9 AM, earlier than most shops in the neighbor
 
 ## Pages
 
-- [Home](https://modelbarbers.com/): intro, featured services, visit questions, and the barbers
+- [Home](https://modelbarbers.com/): intro, featured services, and visit questions
 - [Services and prices](https://modelbarbers.com/services): full service list
 - [About](https://modelbarbers.com/about): the shop and Roman, Jack, and Alik
 - [Find us](https://modelbarbers.com/find-us): hours, phone, address, map, and how to get there
