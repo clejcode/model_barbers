@@ -476,9 +476,18 @@ p + p { margin-top: 1em; }
 
 .hero-headline {
   margin-bottom: var(--sp-3);
-  max-width: 11ch;
-  font-size: clamp(3.35rem, 6.4vw, 5.75rem);
+  max-width: 100%;
+  font-size: clamp(1.85rem, 3vw, 3.05rem);
+  line-height: 0.92;
 }
+.hero-headline .mask-line > span { white-space: nowrap; }
+.hero-headline .hero-focus {
+  font-size: 1.34em;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+.hero-headline .hero-focus em { font-style: italic; }
+.hero-headline .hero-focus > span { padding-right: 0.14em; }
 
 .hero-sub {
   font-size: var(--text-body);
