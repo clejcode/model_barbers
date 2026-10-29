@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -177,7 +177,17 @@
     <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="page-shell">
+
+    <aside class="moved-notice" aria-label="We've moved">
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="find-us.html">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="find-us.html">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
+    </aside>
 
     <!-- ── Opening ────────────────────────────────────────────── -->
     <div class="about-intro reveal visible">
@@ -188,16 +198,30 @@
           <span aria-current="page">About</span>
         </nav>
         <p class="section-label">Who we are</p>
-        <h1>We've been on<br>Union Ave a<br>long time.<br><em>We plan to stay.</em></h1>
+        <h1 class="mask-lines">
+          <span class="mask-line"><span>We've been on</span></span>
+          <span class="mask-line"><span>Union Ave a</span></span>
+          <span class="mask-line"><span>long time.</span></span>
+          <span class="mask-line"><span><em>We plan to stay.</em></span></span>
+        </h1>
       </div>
+    </div>
+
+    <div class="type-band" aria-hidden="true">
+      <div class="type-band-track drift-left">Union Ave</div>
     </div>
 
     <!-- ── Story ──────────────────────────────────────────────── -->
     <section class="section reveal" aria-labelledby="story-heading">
       <div class="container">
         <p class="section-label">The shop</p>
-        <h2 id="story-heading" style="margin-bottom: var(--sp-6); max-width: 18ch;">A neighborhood shop that earned its reputation the old way.</h2>
-        <div class="about-prose" style="max-width: var(--max-w-prose); display: grid; gap: 1em; font-size: var(--text-lg); font-weight: 300; color: var(--text-secondary); line-height: 1.7;">
+        <h2 id="story-heading" class="story-title mask-lines scroll-mask">
+          <span class="mask-line"><span>A neighborhood</span></span>
+          <span class="mask-line"><span>shop that earned</span></span>
+          <span class="mask-line"><span>its reputation</span></span>
+          <span class="mask-line"><span>the old way.</span></span>
+        </h2>
+        <div class="about-prose">
           <p>Model Barbers is Williamsburg's neighborhood barbershop at <a href="find-us.html">497 Union Ave, Brooklyn, NY 11211</a>. Roman, Jack, and Alik do the cutting. Walk-ins only. Cash only.</p>
           <p>Model Barbers has been on Union Ave for as long as most people in the neighborhood can remember. It started as a family business and it's stayed that way — run by people who take pride in the work, not the brand.</p>
           <p>Roman, Jack, and Alik haven't built a customer base. They've built a clientele. There's a difference. Regular clients don't come back just for the cut. They come back for the conversation, the consistency, and the fact that you walk out looking better than when you walked in — every single time.</p>
@@ -206,8 +230,61 @@
       </div>
     </section>
 
+    <section class="section archive-section reveal" aria-labelledby="archive-heading">
+      <div class="container">
+        <p class="section-label">The record</p>
+        <h2 id="archive-heading" class="mask-lines scroll-mask"><span class="mask-line"><span>On Union Ave.</span></span></h2>
+      </div>
+      <div class="archive-fan" data-fan>
+        <figure class="archive-card grain">
+          <div class="archive-card-photo">
+            <picture>
+              <source srcset="storefront-800.webp" type="image/webp" />
+              <img class="crop-awning" src="storefront-800.jpg" alt="Illustrated Model Barbers storefront with the red awning" width="800" height="447" loading="lazy" decoding="async" />
+            </picture>
+            <span class="archive-chip">01 · Shop</span>
+          </div>
+          <figcaption>The awning</figcaption>
+        </figure>
+        <figure class="archive-card grain">
+          <div class="archive-card-photo">
+            <picture>
+              <source srcset="storefront-800.webp" type="image/webp" />
+              <img class="crop-windows" src="storefront-800.jpg" alt="Illustrated Model Barbers shop windows on Union Avenue" width="800" height="447" loading="lazy" decoding="async" />
+            </picture>
+            <span class="archive-chip">02 · 1920s</span>
+          </div>
+          <figcaption>Est. 1920s</figcaption>
+        </figure>
+        <figure class="archive-card grain is-barbers">
+          <div class="archive-card-photo">
+            <picture>
+              <source srcset="barbers-headshot.webp" type="image/webp" />
+              <img src="barbers-headshot.jpg" alt="Roman, Jack, and Alik, the barbers at Model Barbers" width="1070" height="818" loading="lazy" decoding="async" />
+            </picture>
+            <span class="archive-chip">03 · Barbers</span>
+          </div>
+          <figcaption>Roman, Jack, Alik</figcaption>
+        </figure>
+        <figure class="archive-card grain">
+          <div class="archive-card-photo">
+            <picture>
+              <source srcset="storefront-800.webp" type="image/webp" />
+              <img class="crop-street" src="storefront-800.jpg" alt="Illustrated Williamsburg sidewalk outside the Model Barbers storefront" width="800" height="447" loading="lazy" decoding="async" />
+            </picture>
+            <span class="archive-chip">04 · Brooklyn</span>
+          </div>
+          <figcaption>Williamsburg</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="type-band" aria-hidden="true">
+      <div class="type-band-track drift-right">Est. 1920s</div>
+    </div>
+
     <!-- ── Pull Quote ─────────────────────────────────────────── -->
-    <div class="pull-quote reveal">
+    <div class="pull-quote reveal grain">
       <div class="container">
         <blockquote>"Worth the trek from LA."</blockquote>
         <cite>Google Review — Roman's client, returning after moving across the country</cite>
@@ -218,7 +295,7 @@
     <section class="section reveal" aria-labelledby="barbers-heading">
       <div class="container">
         <p class="section-label">The team</p>
-        <h2 id="barbers-heading" style="margin-bottom: var(--sp-8);">Roman, Jack &amp; Alik</h2>
+        <h2 id="barbers-heading" class="story-title mask-lines scroll-mask"><span class="mask-line"><span>Roman, Jack &amp; Alik</span></span></h2>
 
         <div class="barber-profile scroll-item" id="roman">
           <h3 class="bp-name">Roman</h3>
@@ -249,6 +326,7 @@
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
@@ -280,7 +358,7 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
+      <p class="footer-note">Cash only &nbsp;·&nbsp; Walk-ins welcome</p>
       <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
     </div>
   </footer>

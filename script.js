@@ -3,10 +3,69 @@
    ═══════════════════════════════════════════════════════════ */
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const supportsView = typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()');
+
+document.documentElement.classList.add('js');
 
 /* ── Year ─────────────────────────────────────────────────── */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* ═══════════════════════════════════════════════════════════
+   LIVE OPEN / CLOSED — America/New_York
+   Mon–Fri 9:00–19:00, Sat 9:00–18:00, Sun closed.
+   ═══════════════════════════════════════════════════════════ */
+const shopStatus = (now = new Date()) => {
+  const fmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  });
+  const parts = fmt.formatToParts(now);
+  const pick = (type) => parts.find((part) => part.type === type)?.value || '';
+  const weekday = pick('weekday').slice(0, 3);
+  let hour = parseInt(pick('hour'), 10);
+  const minute = parseInt(pick('minute'), 10);
+  const dayPeriod = pick('dayPeriod').toLowerCase();
+  if (dayPeriod.startsWith('pm') && hour < 12) hour += 12;
+  if (dayPeriod.startsWith('am') && hour === 12) hour = 0;
+
+  const nextOpen = { Sun: 'Mon', Mon: 'Tue', Tue: 'Wed', Wed: 'Thu', Thu: 'Fri', Fri: 'Sat', Sat: 'Mon' };
+  if (!Number.isFinite(hour) || !Number.isFinite(minute) || !nextOpen[weekday]) {
+    return { open: false, text: 'Mon–Fri 9–7 · Sat 9–6 · Sun closed' };
+  }
+
+  const mins = hour * 60 + minute;
+  const openAt = 9 * 60;
+  const closeAt = weekday === 'Sun' ? null : weekday === 'Sat' ? 18 * 60 : 19 * 60;
+
+  if (closeAt !== null && mins >= openAt && mins < closeAt) {
+    return { open: true, text: `Open now · until ${weekday === 'Sat' ? '6 PM' : '7 PM'}` };
+  }
+  if (closeAt !== null && mins < openAt) {
+    return { open: false, text: 'Closed · opens 9 AM' };
+  }
+  return { open: false, text: `Closed · opens 9 AM ${nextOpen[weekday]}` };
+};
+
+const paintShopStatus = () => {
+  const state = shopStatus();
+  document.querySelectorAll('[data-shop-status]').forEach((el) => {
+    el.dataset.open = state.open ? 'true' : 'false';
+    const text = el.querySelector('[data-status-text]');
+    if (text) text.textContent = state.text;
+  });
+};
+
+if (document.querySelector('[data-shop-status]')) {
+  paintShopStatus();
+  window.setInterval(paintShopStatus, 30000);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') paintShopStatus();
+  });
+}
 
 /* ═══════════════════════════════════════════════════════════
    HEADER — slim on scroll
@@ -58,29 +117,40 @@ if (navToggle && navOverlay) {
   });
 }
 
+/* Floating call appears only after the opening block has left the screen. */
+const floatingCall = document.querySelector('.floating-call');
+const openingBlock = document.querySelector('.hero, .about-intro, .page-intro');
+if (floatingCall && openingBlock && 'IntersectionObserver' in window) {
+  const floatObs = new IntersectionObserver(([entry]) => {
+    floatingCall.classList.toggle('is-shown', !entry.isIntersecting);
+  });
+  floatObs.observe(openingBlock);
+}
+
 /* ═══════════════════════════════════════════════════════════
    BARBER-POLE STRIPE — scroll velocity + direction
    ═══════════════════════════════════════════════════════════ */
 const stripeTrack = document.querySelector('.top-stripe-track');
 if (stripeTrack && !reduceMotion) {
   const TILE_W = 40;   // matches one gradient repeat (4 × 10px)
-  const DECAY  = 0.88;
 
   let stripePos = 0;
   let stripeVel = 0;
-  let lastSY    = window.scrollY;
+  let lastSY = window.scrollY;
 
-  window.addEventListener('scroll', () => {
-    const dy  = window.scrollY - lastSY;
-    stripeVel = dy * 0.55;
-    lastSY    = window.scrollY;
-  }, { passive: true });
-
+  /* One sample per frame. Velocity eases toward that frame's scroll
+     delta, then decays, so a burst of scroll events cannot step the stripe. */
   const tickStripe = () => {
-    stripeVel *= DECAY;
+    const y = window.scrollY;
+    const dy = y - lastSY;
+    lastSY = y;
+    const goal = Math.max(-14, Math.min(14, dy * 0.62));
+    stripeVel += (goal - stripeVel) * 0.22;
+    stripeVel *= 0.9;
+    if (Math.abs(stripeVel) < 0.02) stripeVel = 0;
     stripePos += stripeVel;
-    stripePos  = ((stripePos % TILE_W) + TILE_W) % TILE_W;
-    stripeTrack.style.transform = `translateX(${stripePos.toFixed(2)}px)`;
+    stripePos = ((stripePos % TILE_W) + TILE_W) % TILE_W;
+    stripeTrack.style.transform = `translate3d(${stripePos}px,0,0)`;
     requestAnimationFrame(tickStripe);
   };
   requestAnimationFrame(tickStripe);
@@ -149,6 +219,28 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0, rootMargin: '0px' });
 
   document.querySelectorAll('[data-reveal="clip"]').forEach(el => clipObs.observe(el));
+
+  if (!supportsView) {
+    document.querySelectorAll('.photo-frame').forEach(el => clipObs.observe(el));
+
+    const fanObs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-straight');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('[data-fan]').forEach(el => fanObs.observe(el));
+
+    const footerObs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.site-footer').forEach(el => footerObs.observe(el));
+  }
 
   /* Stat counters */
   const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
@@ -290,6 +382,27 @@ document.querySelectorAll('.btn, .floating-call').forEach(btn => {
   });
   btn.addEventListener('click', spawnClippings);
 });
+
+/* Click-to-load map. The illustrated plate is the default. */
+const mapButton = document.querySelector('[data-load-map]');
+if (mapButton) {
+  mapButton.addEventListener('click', () => {
+    const slot = document.getElementById('map-slot');
+    const art = document.querySelector('.map-art');
+    if (!slot || slot.querySelector('iframe')) return;
+    const frame = document.createElement('iframe');
+    frame.title = 'Map showing Model Barbers at 497 Union Ave, Williamsburg, Brooklyn';
+    frame.src = 'https://www.google.com/maps?q=497%20Union%20Ave%2C%20Brooklyn%2C%20NY%2011211&output=embed';
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    frame.setAttribute('aria-label', 'Google Map — Model Barbers location');
+    slot.append(frame);
+    slot.classList.add('is-live');
+    if (art) art.hidden = true;
+    mapButton.disabled = true;
+    mapButton.textContent = 'Map loaded';
+  });
+}
 
 /* Logo click chime */
 const logo = document.querySelector('.logo');
