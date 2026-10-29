@@ -6,7 +6,7 @@ Model Barbers is a barbershop in Williamsburg, Brooklyn. The barbers are Roman, 
 
 The shop has moved. It is now at 497 Union Ave, Brooklyn, NY 11211, just down the street from the old shop at 452 Union Ave. The new address has no unit number. The previous address was 452 Union Ave #3427, Brooklyn, NY 11211.
 
-This file repeats only facts published on the Model Barbers website. It does not add ratings, review scores, awards, social accounts, or a founding year.
+This file repeats only facts published on the Model Barbers website. It does not add awards, social accounts, or a founding year.
 
 ## Location
 
@@ -50,6 +50,12 @@ The website says the shop opens at 9 AM, earlier than most shops in the neighbor
 - Roman: the site says he takes his time, and that some clients fly in from LA to sit in his chair.
 - Jack: the site says he makes you feel welcome when you walk in, and that regulars have been coming for years.
 - Alik: the site describes him as sharp, consistent, and fast, often about 20 minutes.
+
+## Reviews
+
+The homepage links to the shop's Google reviews and shows 4.8 from 269 reviews.
+
+- Google reviews: https://search.google.com/local/reviews?placeid=ChIJCfulHFlZwokRs8meQ2tSokw
 
 ## Pages
 
