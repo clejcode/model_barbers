@@ -417,6 +417,28 @@ p + p { margin-top: 1em; }
 .hero-eyebrow a:hover { color: var(--text-primary); }
 
 .hero-headline { margin-bottom: var(--sp-2); }
+.hero-leadin {
+  display: block;
+  font-size: 0.58em;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+}
+.hero-focus {
+  display: block;
+  margin-top: 0.06em;
+  font-size: 1.14em;
+  line-height: 0.92;
+  color: var(--text-primary);
+  padding-bottom: 0.14em;
+  margin-bottom: -0.08em;
+}
+.hero-focus em {
+  font-style: italic;
+  font-weight: 400;
+  white-space: nowrap;
+}
 
 .hero-sub {
   font-size: var(--text-body); font-weight: 400; line-height: 1.6;
@@ -1108,6 +1130,10 @@ body.nav-open .floating-call {
   margin-bottom: -0.02em;
 }
 .mask-line > span { display: block; }
+.hero-headline .hero-focus {
+  padding-bottom: 0.18em;
+  margin-bottom: -0.04em;
+}
 
 /* ════════════════════════════════════════════════════════════
    PHOTO FRAME
