@@ -368,12 +368,26 @@ a[aria-current="page"] {
   color: var(--text-secondary);
   margin-bottom: 0.35rem;
 }
+.hero h1 {
+  font-size: clamp(2.15rem, 4.35vw, 3.45rem);
+}
+.hero h1 .mask-line:first-child {
+  color: var(--text-secondary);
+}
+.hero h1 .mask-line-em {
+  font-size: clamp(2.45rem, 5vw, 4.2rem);
+  color: var(--text-primary);
+}
 .hero h1 em {
   font-family: var(--font-sign);
   font-style: italic;
   font-weight: 500;
   font-synthesis: none;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+  color: inherit;
 }
+.hero h1 .mask-line-em > span { padding-right: 0.14em; }
 .hero-sub {
   max-width: 42ch;
   margin-top: 0.55rem;
