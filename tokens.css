@@ -20,7 +20,7 @@
   --text-2xl:  1.5rem;     /* 24px                         */
   --text-3xl:  2rem;       /* 32px                         */
   --text-4xl:  2.75rem;    /* 44px — section headers       */
-  --text-hero: clamp(3rem, 8vw, 6rem);   /* fluid hero     */
+  --text-hero: clamp(2.6rem, 5.6vw, 4.5rem);   /* fluid hero */
 
   /* ── Colors — base dark theme ───────────────────────────── */
   --bg:             #0E0C0A;   /* page background            */

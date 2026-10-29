@@ -69,23 +69,23 @@ if (navToggle && navOverlay) {
 const stripeTrack = document.querySelector('.top-stripe-track');
 if (stripeTrack && !reduceMotion) {
   const TILE_W = 40;   // matches one gradient repeat (4 × 10px)
-  const DECAY  = 0.88;
 
-  let stripePos = 0;
-  let stripeVel = 0;
-  let lastSY    = window.scrollY;
-
-  window.addEventListener('scroll', () => {
-    const dy  = window.scrollY - lastSY;
-    stripeVel = dy * 0.55;
-    lastSY    = window.scrollY;
-  }, { passive: true });
+  let offset = 0;
+  let velocity = 0;
+  let lastY = window.scrollY;
 
   const tickStripe = () => {
-    stripeVel *= DECAY;
-    stripePos += stripeVel;
-    stripePos  = ((stripePos % TILE_W) + TILE_W) % TILE_W;
-    stripeTrack.style.transform = `translateX(${stripePos.toFixed(2)}px)`;
+    const y = window.scrollY;
+    const delta = y - lastY;
+    lastY = y;
+    // Lerp toward this frame's scroll, then decay, so wheel ticks don't step.
+    const target = delta * 0.72;
+    velocity += (target - velocity) * 0.22;
+    velocity *= 0.94;
+    if (Math.abs(velocity) < 0.01) velocity = 0;
+    offset += velocity;
+    offset = ((offset % TILE_W) + TILE_W) % TILE_W;
+    stripeTrack.style.transform = `translate3d(${offset}px,0,0)`;
     requestAnimationFrame(tickStripe);
   };
   requestAnimationFrame(tickStripe);
