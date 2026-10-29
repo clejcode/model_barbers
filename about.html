@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@1,144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -140,16 +140,13 @@
   }
   </script>
 </head>
-<body>
+<body class="page-about">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="site-header" id="top">
-    <div class="top-stripe" aria-hidden="true">
-      <span class="top-stripe-track"></span>
-    </div>
+    <div class="top-stripe" aria-hidden="true"><span class="top-stripe-track"></span></div>
     <div class="container nav-wrap">
       <a href="index.html" class="logo" aria-label="Model Barbers — home">
-        <img src="scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
+        <img src="scissors-closed-32.png" alt="" width="20" height="20" decoding="async" />
         Model Barbers
       </a>
       <nav aria-label="Primary navigation">
@@ -166,7 +163,6 @@
       </button>
     </div>
   </header>
-
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
     <ul class="nav-overlay-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -174,13 +170,21 @@
       <li><a href="about.html">About</a></li>
       <li><a href="find-us.html">Find Us</a></li>
     </ul>
-    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
+    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call (718) 387-9487</a>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="page-shell">
+    <aside class="moved-notice" aria-label="We've moved">
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="find-us.html">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="find-us.html">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
+    </aside>
 
-    <!-- ── Opening ────────────────────────────────────────────── -->
-    <div class="about-intro reveal visible">
+    <div class="page-intro about-intro">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -188,67 +192,100 @@
           <span aria-current="page">About</span>
         </nav>
         <p class="section-label">Who we are</p>
-        <h1>We've been on<br>Union Ave a<br>long time.<br><em>We plan to stay.</em></h1>
+        <h1 class="mask-lines">
+          <span class="mask-line"><span>On Union Ave a long time.</span></span>
+          <span class="mask-line"><span><em>We plan to stay.</em></span></span>
+        </h1>
       </div>
     </div>
 
-    <!-- ── Story ──────────────────────────────────────────────── -->
-    <section class="section reveal" aria-labelledby="story-heading">
+    <section class="section" aria-labelledby="story-heading">
+      <div class="container about-split">
+        <div>
+          <p class="section-label">The shop</p>
+          <h2 id="story-heading">A neighborhood shop.</h2>
+          <div class="about-prose">
+            <p>Model Barbers is Williamsburg's neighborhood barbershop at <a href="find-us.html">497 Union Ave, Brooklyn, NY 11211</a>. Roman, Jack, and Alik do the cutting. Walk-ins only. Cash only.</p>
+            <p>It started as a family business and stayed that way — run by people who take pride in the work, not the brand. Regulars come back for the conversation and the cut. In a neighborhood of $70 haircuts, Model Barbers charges $30 and sends you out a brand new man. The list is on the <a href="services.html">services page</a>.</p>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="frame photo-frame">
+            <span class="crops" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <picture>
+              <source srcset="barbers-headshot.webp" type="image/webp" />
+              <img
+                src="barbers-headshot.jpg"
+                alt="Roman, Jack, and Alik, left to right, the barbers at Model Barbers"
+                width="1070" height="818"
+                loading="lazy" decoding="async"
+              />
+            </picture>
+          </div>
+          <figcaption>
+            <span class="name-row"><span>Roman</span><span>Jack</span><span>Alik</span></span>
+            <p class="credits">Roman takes his time. Some clients fly in from LA to sit in his chair. Jack makes you feel welcome when you walk in, and regulars have been coming for years. Alik is sharp, consistent, and fast, often about 20 minutes.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section archive" aria-labelledby="archive-heading">
       <div class="container">
-        <p class="section-label">The shop</p>
-        <h2 id="story-heading" style="margin-bottom: var(--sp-6); max-width: 18ch;">A neighborhood shop that earned its reputation the old way.</h2>
-        <div class="about-prose" style="max-width: var(--max-w-prose); display: grid; gap: 1em; font-size: var(--text-lg); font-weight: 300; color: var(--text-secondary); line-height: 1.7;">
-          <p>Model Barbers is Williamsburg's neighborhood barbershop at <a href="find-us.html">497 Union Ave, Brooklyn, NY 11211</a>. Roman, Jack, and Alik do the cutting. Walk-ins only. Cash only.</p>
-          <p>Model Barbers has been on Union Ave for as long as most people in the neighborhood can remember. It started as a family business and it's stayed that way — run by people who take pride in the work, not the brand.</p>
-          <p>Roman, Jack, and Alik haven't built a customer base. They've built a clientele. There's a difference. Regular clients don't come back just for the cut. They come back for the conversation, the consistency, and the fact that you walk out looking better than when you walked in — every single time.</p>
-          <p>In a neighborhood where haircuts cost $70 and come with a mood board consultation, Model Barbers charges $30 and sends you out a brand new man. That's not a coincidence. It's the whole point. The full list is on the <a href="services.html">services page</a>.</p>
+        <p class="section-label">The record</p>
+        <h2 id="archive-heading">On Union Ave.</h2>
+        <div class="archive-fan" data-fan>
+          <figure class="archive-card grain">
+            <div class="archive-card-photo">
+              <picture>
+                <source srcset="storefront-800.webp" type="image/webp" />
+                <img class="crop-awning" src="storefront-800.jpg" alt="Illustration of the Model Barbers awning" width="800" height="447" loading="lazy" decoding="async" />
+              </picture>
+              <span class="archive-chip">01 · Shop</span>
+            </div>
+            <figcaption>The awning</figcaption>
+          </figure>
+          <figure class="archive-card grain">
+            <div class="archive-card-photo">
+              <picture>
+                <source srcset="storefront-800.webp" type="image/webp" />
+                <img class="crop-windows" src="storefront-800.jpg" alt="Illustration of the Model Barbers shop windows" width="800" height="447" loading="lazy" decoding="async" />
+              </picture>
+              <span class="archive-chip">02 · 1920s</span>
+            </div>
+            <figcaption>Est. 1920s</figcaption>
+          </figure>
+          <figure class="archive-card grain is-barbers">
+            <div class="archive-card-photo">
+              <picture>
+                <source srcset="barbers-headshot.webp" type="image/webp" />
+                <img src="barbers-headshot.jpg" alt="Roman, Jack, and Alik, the barbers at Model Barbers" width="1070" height="818" loading="lazy" decoding="async" />
+              </picture>
+              <span class="archive-chip">03 · Barbers</span>
+            </div>
+            <figcaption>Roman, Jack, Alik</figcaption>
+          </figure>
+          <figure class="archive-card grain">
+            <div class="archive-card-photo">
+              <picture>
+                <source srcset="storefront-800.webp" type="image/webp" />
+                <img class="crop-street" src="storefront-800.jpg" alt="Illustration of the sidewalk outside the Model Barbers storefront" width="800" height="447" loading="lazy" decoding="async" />
+              </picture>
+              <span class="archive-chip">04 · Brooklyn</span>
+            </div>
+            <figcaption>Williamsburg</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- ── Pull Quote ─────────────────────────────────────────── -->
-    <div class="pull-quote reveal">
-      <div class="container">
-        <blockquote>"Worth the trek from LA."</blockquote>
-        <cite>Google Review — Roman's client, returning after moving across the country</cite>
-      </div>
+    <div class="container">
+      <p class="honest">Cash only. No app. No online booking. Open at 9. Hours, the map, and the phone are on the <a href="find-us.html">Find Us page</a>.</p>
     </div>
-
-    <!-- ── Barbers ─────────────────────────────────────────────── -->
-    <section class="section reveal" aria-labelledby="barbers-heading">
-      <div class="container">
-        <p class="section-label">The team</p>
-        <h2 id="barbers-heading" style="margin-bottom: var(--sp-8);">Roman, Jack &amp; Alik</h2>
-
-        <div class="barber-profile scroll-item" id="roman">
-          <h3 class="bp-name">Roman</h3>
-          <p class="bp-body">Roman will take his time with your cut — every single one. He's not cutting hair to get through the queue. He's building something that holds up in a week, in a month, in a year. His regulars have followed him through everything. Some fly in from LA just to sit in his chair. That's not loyalty you buy. That's loyalty you earn, one cut at a time.</p>
-        </div>
-
-        <div class="barber-profile scroll-item" id="jack">
-          <h3 class="bp-name">Jack</h3>
-          <p class="bp-body">You'll feel welcome the second you walk through the door. That's Jack. He's the kind of barber who remembers how you like it before you've said a word, who keeps the conversation going just enough, and who sends you out the door with a cut that does the talking for you. His regulars have been coming in for years, and they'll keep coming.</p>
-        </div>
-
-        <div class="barber-profile scroll-item" id="alik">
-          <h3 class="bp-name">Alik</h3>
-          <p class="bp-body">Fast doesn't mean rushed. Alik moves with precision — in and out in 20 minutes without cutting corners. Walk-ins who sit in Alik's chair once tend to ask for him by name the next time. He's consistent in a way that's harder to find than most people realize.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── The honest bit ────────────────────────────────────────── -->
-    <section class="section reveal" aria-label="What to expect">
-      <div class="container">
-        <div class="honest-box">
-          <p>We're cash only. We don't have an app. We don't take appointments online. We open at 9. We'll see you when you get here. Hours, the map, and the phone number are on the <a href="find-us.html">Find Us page</a>.</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
@@ -280,11 +317,10 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
-      <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
+      <p class="footer-note">Cash only · Walk-ins welcome</p>
+      <p class="footer-note copyright">© <span id="year"></span> Model Barbers</p>
     </div>
   </footer>
-
   <a class="floating-call" href="tel:+17183879487" aria-label="Call Model Barbers">Call (718) 387-9487</a>
   <script src="script.js" defer></script>
 </body>

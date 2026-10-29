@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@1,144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -204,16 +204,13 @@
   }
   </script>
 </head>
-<body>
+<body class="page-services">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="site-header" id="top">
-    <div class="top-stripe" aria-hidden="true">
-      <span class="top-stripe-track"></span>
-    </div>
+    <div class="top-stripe" aria-hidden="true"><span class="top-stripe-track"></span></div>
     <div class="container nav-wrap">
       <a href="index.html" class="logo" aria-label="Model Barbers — home">
-        <img src="scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
+        <img src="scissors-closed-32.png" alt="" width="20" height="20" decoding="async" />
         Model Barbers
       </a>
       <nav aria-label="Primary navigation">
@@ -230,7 +227,6 @@
       </button>
     </div>
   </header>
-
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
     <ul class="nav-overlay-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -238,102 +234,98 @@
       <li><a href="about.html">About</a></li>
       <li><a href="find-us.html">Find Us</a></li>
     </ul>
-    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
+    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call (718) 387-9487</a>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="page-shell">
+    <aside class="moved-notice" aria-label="We've moved">
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="find-us.html">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="find-us.html">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
+    </aside>
 
-    <div class="page-intro reveal visible">
-      <div class="container">
+    <div class="container sheet">
+    <div class="page-intro">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Services</span>
         </nav>
         <p class="section-label">What we offer</p>
-        <h1>Services &amp;<br>Pricing</h1>
-        <p class="lead">Straight prices. No hidden fees. Cash only — ATM right next door. Walk-ins at 497 Union Ave, Williamsburg.</p>
-      </div>
+        <h1 class="mask-lines">
+          <span class="mask-line"><span>Services &amp; pricing.</span></span>
+        </h1>
+        <p class="lead">Straight prices. No hidden fees. Cash only. Walk-ins at 497 Union Ave, Williamsburg.</p>
     </div>
 
-    <div class="container">
-
-      <!-- ── Cuts ────────────────────────────────────────────── -->
-      <div class="services-category reveal">
+      <div class="menu">
         <h2 class="category-label" id="cuts">Cuts</h2>
-
-        <div class="service-row-full scroll-item" id="mens-haircut">
-          <div class="service-info">
-            <h3 class="name">Men's Haircut</h3>
-            <p class="desc">Classic cut to any style or length. Includes wash if needed.</p>
-          </div>
-          <p class="service-price-col">$30</p>
+        <div class="menu-row" id="mens-haircut">
+          <span class="idx">01</span>
+          <h3 class="item-name">Men's Haircut</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$30</p>
+          <p class="item-desc">Classic cut to any style or length. Includes wash if needed.</p>
+        </div>
+        <div class="menu-row" id="fade">
+          <span class="idx">02</span>
+          <h3 class="item-name">Fade</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$30</p>
+          <p class="item-desc">Skin fade, taper, or high-and-tight — your call.</p>
+        </div>
+        <div class="menu-row" id="shape-up">
+          <span class="idx">03</span>
+          <h3 class="item-name">Shape-Up</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$15</p>
+          <p class="item-desc">Hairline, edges, and temple definition. Quick and precise.</p>
+        </div>
+        <div class="menu-row" id="head-shave">
+          <span class="idx">04</span>
+          <h3 class="item-name">Head Shave</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$25</p>
+          <p class="item-desc">Clean, smooth, and complete. Finished with a hot towel.</p>
         </div>
 
-        <div class="service-row-full scroll-item" id="fade">
-          <div class="service-info">
-            <h3 class="name">Fade</h3>
-            <p class="desc">Skin fade, taper, or high-and-tight — your call.</p>
-          </div>
-          <p class="service-price-col">$30</p>
-        </div>
-
-        <div class="service-row-full scroll-item" id="shape-up">
-          <div class="service-info">
-            <h3 class="name">Shape-Up</h3>
-            <p class="desc">Hairline, edges, and temple definition. Quick and precise.</p>
-          </div>
-          <p class="service-price-col">$15</p>
-        </div>
-
-        <div class="service-row-full scroll-item" id="head-shave">
-          <div class="service-info">
-            <h3 class="name">Head Shave</h3>
-            <p class="desc">Clean, smooth, and complete. Finished with a hot towel.</p>
-          </div>
-          <p class="service-price-col">$25</p>
-        </div>
-      </div>
-
-      <!-- ── Shaves & Beard ──────────────────────────────────── -->
-      <div class="services-category reveal">
         <h2 class="category-label" id="shaves-and-beard">Shaves &amp; Beard</h2>
-
-        <div class="service-row-full scroll-item" id="beard-trim">
-          <div class="service-info">
-            <h3 class="name">Beard Trim</h3>
-            <p class="desc">Shaped, lined, and cleaned up.</p>
-          </div>
-          <p class="service-price-col">$15</p>
+        <div class="menu-row" id="beard-trim">
+          <span class="idx">05</span>
+          <h3 class="item-name">Beard Trim</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$15</p>
+          <p class="item-desc">Shaped, lined, and cleaned up.</p>
+        </div>
+        <div class="menu-row" id="straight-razor-shave">
+          <span class="idx">06</span>
+          <h3 class="item-name">Straight Razor Shave</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$30</p>
+          <p class="item-desc">Traditional straight razor. The closest shave you'll get.</p>
+        </div>
+        <div class="menu-row" id="hot-towel-shave">
+          <span class="idx">07</span>
+          <h3 class="item-name">Hot Towel Shave</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <p class="price">$30</p>
+          <p class="item-desc">Hot towel prep, straight razor finish. Takes its time on purpose.</p>
         </div>
 
-        <div class="service-row-full scroll-item" id="straight-razor-shave">
-          <div class="service-info">
-            <h3 class="name">Straight Razor Shave</h3>
-            <p class="desc">Traditional straight razor. The closest shave you'll get.</p>
-          </div>
-          <p class="service-price-col">$30</p>
-        </div>
-
-        <div class="service-row-full scroll-item" id="hot-towel-shave">
-          <div class="service-info">
-            <h3 class="name">Hot Towel Shave</h3>
-            <p class="desc">Hot towel prep, straight razor finish. Takes its time on purpose.</p>
-          </div>
-          <p class="service-price-col">$30</p>
+        <div class="menu-foot">
+          <p>Cash only. No appointment needed — walk right in. Questions? <a href="tel:+17183879487">(718) 387-9487</a>. <a href="find-us.html">Directions and hours</a>.</p>
+          <p class="price-note">Prices confirmed as of 2025. Call to verify.</p>
         </div>
       </div>
-
-      <!-- ── Footer note ─────────────────────────────────────── -->
-      <div class="services-footer reveal">
-        <p>Cash only. No appointment needed — walk right in. Questions? <a href="tel:+17183879487">(718) 387-9487</a>. <a href="find-us.html">Directions and hours</a>.</p>
-        <p style="margin-top: .5em; color: var(--text-faint); font-size: var(--text-xs);">Prices confirmed as of 2025. Call to verify.</p>
-      </div>
-
     </div>
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
@@ -365,11 +357,10 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
-      <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
+      <p class="footer-note">Cash only · Walk-ins welcome</p>
+      <p class="footer-note copyright">© <span id="year"></span> Model Barbers</p>
     </div>
   </footer>
-
   <a class="floating-call" href="tel:+17183879487" aria-label="Call Model Barbers">Call (718) 387-9487</a>
   <script src="script.js" defer></script>
 </body>

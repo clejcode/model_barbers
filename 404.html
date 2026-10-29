@@ -10,20 +10,17 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@1,144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-missing">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="site-header" id="top">
-    <div class="top-stripe" aria-hidden="true">
-      <span class="top-stripe-track"></span>
-    </div>
+    <div class="top-stripe" aria-hidden="true"><span class="top-stripe-track"></span></div>
     <div class="container nav-wrap">
       <a href="index.html" class="logo" aria-label="Model Barbers — home">
-        <img src="scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
+        <img src="scissors-closed-32.png" alt="" width="20" height="20" decoding="async" />
         Model Barbers
       </a>
       <nav aria-label="Primary navigation">
@@ -40,7 +37,6 @@
       </button>
     </div>
   </header>
-
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
     <ul class="nav-overlay-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -48,20 +44,31 @@
       <li><a href="about.html">About</a></li>
       <li><a href="find-us.html">Find Us</a></li>
     </ul>
-    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
+    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call (718) 387-9487</a>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="page-shell">
+    <aside class="moved-notice" aria-label="We've moved">
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="find-us.html">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="find-us.html">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
+    </aside>
     <div class="page-intro">
       <div class="container">
-        <h1>Page not found</h1>
+        <p class="section-label">404</p>
+        <h1 class="mask-lines"><span class="mask-line"><span>Page not found.</span></span></h1>
         <p class="lead">That address is not on this site. The shop is at 497 Union Ave, Brooklyn, NY 11211.</p>
-        <p style="margin-top: var(--sp-6);"><a class="btn btn-primary" href="index.html">Back to the home page</a></p>
+        <p class="hero-cta-group"><a class="btn btn-primary" href="index.html">Back to the home page</a></p>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
@@ -92,11 +99,10 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
-      <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
+      <p class="footer-note">Cash only · Walk-ins welcome</p>
+      <p class="footer-note copyright">© <span id="year"></span> Model Barbers</p>
     </div>
   </footer>
-
   <script src="script.js" defer></script>
 </body>
 </html>

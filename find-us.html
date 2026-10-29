@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@1,144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -140,16 +140,13 @@
   }
   </script>
 </head>
-<body>
+<body class="page-find">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <header class="site-header" id="top">
-    <div class="top-stripe" aria-hidden="true">
-      <span class="top-stripe-track"></span>
-    </div>
+    <div class="top-stripe" aria-hidden="true"><span class="top-stripe-track"></span></div>
     <div class="container nav-wrap">
       <a href="index.html" class="logo" aria-label="Model Barbers — home">
-        <img src="scissors-closed-32.png" alt="" width="20" height="20" loading="eager" decoding="async" />
+        <img src="scissors-closed-32.png" alt="" width="20" height="20" decoding="async" />
         Model Barbers
       </a>
       <nav aria-label="Primary navigation">
@@ -166,7 +163,6 @@
       </button>
     </div>
   </header>
-
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
     <ul class="nav-overlay-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -174,19 +170,21 @@
       <li><a href="about.html">About</a></li>
       <li><a href="find-us.html">Find Us</a></li>
     </ul>
-    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
+    <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call (718) 387-9487</a>
   </div>
 
-  <main id="main-content">
-
+  <main id="main-content" class="page-shell">
     <aside class="moved-notice" aria-label="We've moved">
-      <div class="container">
-        <p><strong>We've moved!</strong> Now at 497 Union Ave, just down the street from our old spot at 452 Union Ave.</p>
-      </div>
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="#map">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="#map">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
     </aside>
 
-    <!-- ── Page intro ─────────────────────────────────────────── -->
-    <div class="page-intro reveal visible">
+    <div class="page-intro">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -194,76 +192,91 @@
           <span aria-current="page">Find Us</span>
         </nav>
         <p class="section-label">Getting here</p>
-        <h1>Find Us</h1>
+        <h1 class="mask-lines"><span class="mask-line"><span>Find us.</span></span></h1>
         <p class="lead">497 Union Ave, Brooklyn, NY 11211. Walk-ins welcome. Cash only.</p>
+        <p class="coords">40.7155° N · 73.9521° W</p>
+        <p class="shop-status" data-shop-status>
+          <span class="availability-dot" aria-hidden="true"></span>
+          <span data-status-text>Mon–Fri 9–7 · Sat 9–6 · Sun closed</span>
+        </p>
       </div>
     </div>
 
-    <!-- ── Map ───────────────────────────────────────────────── -->
-    <div class="map-full" data-reveal="clip">
-      <iframe
-        title="Map showing Model Barbers at 497 Union Ave, Williamsburg, Brooklyn"
-        src="https://www.google.com/maps?q=497%20Union%20Ave%2C%20Brooklyn%2C%20NY%2011211&output=embed"
-        width="1200" height="450"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        aria-label="Google Map — Model Barbers location"
-      ></iframe>
-    </div>
-
-    <!-- ── Details ────────────────────────────────────────────── -->
-    <div class="find-us-body">
-      <div class="container find-us-grid">
-
-        <!-- Hours -->
-        <div>
-          <div class="contact-block">
-            <h2>Hours</h2>
-            <table class="hours-table">
-              <tbody>
-                <tr><th scope="row">Mon–Fri</th><td>9:00 AM – 7:00 PM</td></tr>
-                <tr><th scope="row">Saturday</th><td>9:00 AM – 6:00 PM</td></tr>
-                <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="contact-block" style="margin-top: var(--sp-8);">
-            <h2>Call us</h2>
-            <a class="phone-large" href="tel:+17183879487">(718) 387-9487</a>
-            <p class="getting-here" style="margin-top: var(--sp-3);">Walk-ins welcome. Call ahead if you're on a tight schedule — we'll tell you the current wait. Common questions are on the <a href="index.html#faq">home page FAQ</a>.</p>
+    <div class="container find-grid">
+      <div>
+        <div class="contact-block">
+          <h2>Hours</h2>
+          <table class="hours-table">
+            <tbody>
+              <tr><th scope="row">Mon–Fri</th><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM – 6:00 PM</td></tr>
+              <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="contact-block">
+          <h2>Call</h2>
+          <a class="phone-large" href="tel:+17183879487">(718) 387-9487</a>
+          <p class="getting-here">Walk-ins welcome. Call ahead if you're on a tight schedule — we'll tell you the current wait. Common questions are on the <a href="index.html#faq">home page FAQ</a>.</p>
+        </div>
+        <div class="contact-block">
+          <h2>Getting here</h2>
+          <div class="getting-here">
+            <p><strong>By subway:</strong> L train to Lorimer St or Graham Ave. A short walk from both, along Union Ave.</p>
+            <p><strong>By car:</strong> Street parking on Union Ave and the surrounding blocks. Check signs for alternate-side rules.</p>
+            <p><strong>Cash:</strong> We're cash only.</p>
           </div>
         </div>
+      </div>
 
-        <!-- Address & Getting here -->
-        <div>
-          <div class="contact-block">
-            <h2>Address</h2>
-            <address>
-              Model Barbers<br>
-              497 Union Ave<br>
-              Brooklyn, NY 11211<br><br>
-              <a href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Open in Google Maps ↗</a><br>
-              <a href="https://maps.apple.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Open in Apple Maps ↗</a>
-            </address>
-          </div>
-
-          <div class="contact-block" style="margin-top: var(--sp-8);">
-            <h2>Getting here</h2>
-            <div class="getting-here">
-              <p><strong style="color: var(--text-primary); font-weight: 500;">By subway:</strong> L train to Lorimer St or Graham Ave. We're a short walk from both stops on Union Ave.</p>
-              <p><strong style="color: var(--text-primary); font-weight: 500;">By car:</strong> Street parking is available on Union Ave and the surrounding blocks. Check signs for alternate-side rules.</p>
-              <p><strong style="color: var(--text-primary); font-weight: 500;">Cash:</strong> We're cash only. There's an ATM right next door — no need to plan ahead.</p>
-            </div>
-          </div>
+      <div class="map-plate" id="map">
+        <a class="map-art" href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">
+          <svg class="map-svg" viewBox="0 0 640 300" aria-hidden="true" focusable="false">
+            <rect width="640" height="300" fill="#141210"/>
+            <g fill="#1A1714" stroke="#2C261F" stroke-width="1.5">
+              <rect x="28" y="28" width="150" height="90"/>
+              <rect x="28" y="176" width="150" height="92"/>
+              <rect x="400" y="24" width="110" height="100"/>
+              <rect x="528" y="40" width="84" height="80"/>
+              <rect x="404" y="184" width="196" height="84"/>
+            </g>
+            <rect x="0" y="136" width="640" height="22" fill="#24201B"/>
+            <rect x="250" y="0" width="34" height="300" fill="#E8DECA"/>
+            <rect x="263" y="0" width="8" height="300" fill="#C4B7A4"/>
+            <rect x="70" y="176" width="118" height="16" fill="#B82030"/>
+            <rect x="70" y="192" width="118" height="46" fill="#1C1916"/>
+            <g>
+              <rect x="198" y="186" width="8" height="42" fill="#EDE4CE"/>
+              <rect x="198" y="186" width="8" height="10" fill="#B82030"/>
+              <rect x="198" y="196" width="8" height="10" fill="#1C3050"/>
+              <rect x="198" y="206" width="8" height="10" fill="#B82030"/>
+            </g>
+            <circle cx="267" cy="176" r="8" fill="#B82030"/>
+            <circle cx="267" cy="176" r="3" fill="#EFE7D2"/>
+            <text x="70" y="166">497</text>
+            <text x="292" y="28">UNION AVE</text>
+          </svg>
+          <span class="map-pin-label">497 Union Ave</span>
+          <span class="sr-only">Open in Google Maps</span>
+        </a>
+        <div class="map-slot" id="map-slot"></div>
+        <div class="map-actions">
+          <a href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Google Maps</a>
+          <a href="https://maps.apple.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Apple Maps</a>
+          <button type="button" class="btn btn-ghost" data-load-map>Load interactive map</button>
+          <p class="map-note">A plate, not a street map. The links open directions.</p>
         </div>
-
+        <address class="getting-here">
+          Model Barbers<br>
+          497 Union Ave<br>
+          Brooklyn, NY 11211
+        </address>
       </div>
     </div>
-
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
@@ -295,11 +308,10 @@
       </div>
     </div>
     <div class="container footer-foot">
-      <p class="footer-note">Cash only &nbsp;·&nbsp; ATM next door &nbsp;·&nbsp; Walk-ins welcome</p>
-      <p class="footer-note copyright">&copy; <span id="year"></span> Model Barbers</p>
+      <p class="footer-note">Cash only · Walk-ins welcome</p>
+      <p class="footer-note copyright">© <span id="year"></span> Model Barbers</p>
     </div>
   </footer>
-
   <a class="floating-call" href="tel:+17183879487" aria-label="Call Model Barbers">Call (718) 387-9487</a>
   <script src="script.js" defer></script>
 </body>
