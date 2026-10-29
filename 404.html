@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -52,11 +52,24 @@
   </div>
 
   <main id="main-content">
+    <aside class="moved-notice" aria-label="We've moved">
+      <div class="container">
+        <p class="moved-line">
+          <span class="moved-rule" aria-hidden="true"></span>
+          <span class="moved-kicker">We've moved</span>
+          <span class="moved-sep" aria-hidden="true">·</span>
+          <span class="moved-place"><a href="find-us.html">497 Union Ave</a><span class="moved-more">, down the street from 452</span></span>
+        </p>
+      </div>
+    </aside>
     <div class="page-intro">
       <div class="container">
-        <h1>Page not found</h1>
+        <h1 class="mask-reveal">
+          <span class="mask-line"><span>Page not</span></span>
+          <span class="mask-line"><span>found.</span></span>
+        </h1>
         <p class="lead">That address is not on this site. The shop is at 497 Union Ave, Brooklyn, NY 11211.</p>
-        <p style="margin-top: var(--sp-6);"><a class="btn btn-primary" href="index.html">Back to the home page</a></p>
+        <p class="intro-cta"><a class="btn btn-primary" href="index.html">Back to the home page</a></p>
       </div>
     </div>
   </main>
