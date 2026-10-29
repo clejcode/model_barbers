@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -177,12 +177,16 @@
     <a class="btn btn-primary nav-overlay-cta" href="tel:+17183879487">Call&nbsp;&nbsp;(718)&nbsp;387-9487</a>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="page-shell">
 
     <aside class="moved-notice" aria-label="We've moved">
-      <div class="container">
-        <p><strong>We've moved!</strong> Now at 497 Union Ave, just down the street from our old spot at 452 Union Ave.</p>
-      </div>
+      <p class="moved-line">
+        <span class="moved-badge">We've moved</span>
+        <span class="moved-detail">
+          <span class="moved-short">Now at <a href="#map">497 Union Ave</a>, from 452.</span>
+          <span class="moved-long">Now at <a href="#map">497 Union Ave</a>, just down the street from our old spot at 452 Union Ave.</span>
+        </span>
+      </p>
     </aside>
 
     <!-- ── Page intro ─────────────────────────────────────────── -->
@@ -194,21 +198,43 @@
           <span aria-current="page">Find Us</span>
         </nav>
         <p class="section-label">Getting here</p>
-        <h1>Find Us</h1>
+        <h1 class="mask-lines"><span class="mask-line"><span>Find us.</span></span></h1>
         <p class="lead">497 Union Ave, Brooklyn, NY 11211. Walk-ins welcome. Cash only.</p>
+        <p class="coords">40.7155° N · 73.9521° W</p>
       </div>
     </div>
 
-    <!-- ── Map ───────────────────────────────────────────────── -->
-    <div class="map-full" data-reveal="clip">
-      <iframe
-        title="Map showing Model Barbers at 497 Union Ave, Williamsburg, Brooklyn"
-        src="https://www.google.com/maps?q=497%20Union%20Ave%2C%20Brooklyn%2C%20NY%2011211&output=embed"
-        width="1200" height="450"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        aria-label="Google Map — Model Barbers location"
-      ></iframe>
+    <div class="map-panel" id="map">
+      <a class="map-art" href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">
+        <svg class="map-svg" viewBox="0 0 800 480" aria-hidden="true" focusable="false">
+          <rect width="800" height="480" fill="#141210"/>
+          <g fill="#1A1714" stroke="#2C261F" stroke-width="2">
+            <rect x="36" y="36" width="210" height="130"/>
+            <rect x="430" y="28" width="150" height="150"/>
+            <rect x="610" y="48" width="160" height="120"/>
+            <rect x="28" y="268" width="200" height="170"/>
+            <rect x="430" y="286" width="170" height="150"/>
+            <rect x="630" y="300" width="140" height="140"/>
+          </g>
+          <g fill="none" stroke="#8A7E6E" stroke-width="8">
+            <path d="M0 214 H800"/>
+            <path d="M250 0 V480"/>
+            <path d="M520 0 V480"/>
+          </g>
+          <path d="M360 0 V480" stroke="#E8DECA" stroke-width="18"/>
+          <circle cx="360" cy="214" r="18" fill="#B82030"/>
+          <circle cx="360" cy="214" r="6" fill="#EFE7D2"/>
+        </svg>
+        <span class="map-pin-label">497 Union Ave</span>
+        <span class="sr-only">Open in Google Maps</span>
+      </a>
+      <div class="map-slot" id="map-slot"></div>
+      <div class="map-actions">
+        <a href="https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Google Maps</a>
+        <a href="https://maps.apple.com/?q=497+Union+Ave,+Brooklyn,+NY+11211" target="_blank" rel="noopener">Apple Maps</a>
+        <button type="button" class="btn btn-ghost" data-load-map>Load interactive map</button>
+        <p class="map-note">Schematic, not a street map. The links open directions.</p>
+      </div>
     </div>
 
     <!-- ── Details ────────────────────────────────────────────── -->
@@ -228,10 +254,10 @@
             </table>
           </div>
 
-          <div class="contact-block" style="margin-top: var(--sp-8);">
+          <div class="contact-block contact-follow">
             <h2>Call us</h2>
             <a class="phone-large" href="tel:+17183879487">(718) 387-9487</a>
-            <p class="getting-here" style="margin-top: var(--sp-3);">Walk-ins welcome. Call ahead if you're on a tight schedule — we'll tell you the current wait. Common questions are on the <a href="index.html#faq">home page FAQ</a>.</p>
+            <p class="getting-here">Walk-ins welcome. Call ahead if you're on a tight schedule — we'll tell you the current wait. Common questions are on the <a href="index.html#faq">home page FAQ</a>.</p>
           </div>
         </div>
 
@@ -248,12 +274,12 @@
             </address>
           </div>
 
-          <div class="contact-block" style="margin-top: var(--sp-8);">
+          <div class="contact-block contact-follow">
             <h2>Getting here</h2>
             <div class="getting-here">
-              <p><strong style="color: var(--text-primary); font-weight: 500;">By subway:</strong> L train to Lorimer St or Graham Ave. We're a short walk from both stops on Union Ave.</p>
-              <p><strong style="color: var(--text-primary); font-weight: 500;">By car:</strong> Street parking is available on Union Ave and the surrounding blocks. Check signs for alternate-side rules.</p>
-              <p><strong style="color: var(--text-primary); font-weight: 500;">Cash:</strong> We're cash only. There's an ATM right next door — no need to plan ahead.</p>
+              <p><strong>By subway:</strong> L train to Lorimer St or Graham Ave. We're a short walk from both stops on Union Ave.</p>
+              <p><strong>By car:</strong> Street parking is available on Union Ave and the surrounding blocks. Check signs for alternate-side rules.</p>
+              <p><strong>Cash:</strong> We're cash only. There's an ATM right next door — no need to plan ahead.</p>
             </div>
           </div>
         </div>
@@ -264,6 +290,7 @@
   </main>
 
   <footer class="site-footer">
+    <p class="footer-wordmark" aria-hidden="true"><span>Brooklyn.</span></p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <p class="footer-name">Model Barbers</p>
