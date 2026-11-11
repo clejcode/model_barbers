@@ -4,14 +4,13 @@
 
 Model Barbers is a barbershop in Williamsburg, Brooklyn. The barbers are Roman, Jack, and Alik. The shop's line is "Leave a brand new man."
 
-The shop has moved. It is now at 497 Union Ave, Brooklyn, NY 11211, just down the street from the old shop at 452 Union Ave. The new address has no unit number. The previous address was 452 Union Ave #3427, Brooklyn, NY 11211.
+The shop has moved. It is now at 497 Union Ave, Brooklyn, NY 11211, just down the street from the old shop on Union Ave. The new address has no unit number.
 
 This file repeats only facts published on the Model Barbers website. It does not add awards, social accounts, or a founding year.
 
 ## Location
 
 - Street address: 497 Union Ave, Brooklyn, NY 11211
-- Previous address: 452 Union Ave #3427, Brooklyn, NY 11211
 - Neighborhood: Williamsburg, Brooklyn
 - Map: https://maps.google.com/?q=497+Union+Ave,+Brooklyn,+NY+11211
 - By subway: L train to Lorimer St or Graham Ave, then a short walk along Union Ave
